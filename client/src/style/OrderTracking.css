@@ -1,0 +1,16 @@
+.row-track-head {
+  width: 99%;
+  margin: 0 auto;
+  margin: 10px 0;
+}
+.track-div {
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .order-table-para {
+    font-size: 10px;
+  }
+  .order-view {
+    font-size: 10px;
+  }
+}

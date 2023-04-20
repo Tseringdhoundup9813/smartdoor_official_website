@@ -1,0 +1,263 @@
+.navbar-img{
+    object-fit: contain;
+    height:50px;
+   width:10%;
+   
+}
+.logo-img{
+    height: 100%;
+}
+.nav-item{
+    text-align:left;
+    cursor: pointer;
+}
+.navbar-nav{
+    width:100%;
+    justify-content: space-between;
+}
+.navbar-signbtn{
+    padding:5px 20px;
+    border:1px solid red;
+    border-radius:0;
+    font-weight:700;
+}
+ .two-icon{
+    display:flex;
+    align-items: center;
+    cursor:pointer;
+    font-size:18px;
+    color:#908778;
+    padding:0 5px;
+    width: 20%;
+    justify-content: space-around;
+}
+.navbar-collapse{
+    flex-basis:auto;
+    flex-grow: 0;
+    width:90%;
+}
+.navbar-ul{
+    position:relative;
+    width:70%;
+    margin-left:auto;
+}
+.search-input{
+    display:none;
+    align-items:center;
+    width:100%;
+    height: 100%;
+
+}
+.heart-icon:hover{
+    color:black
+}
+.search-input input{
+    width: 100%;
+    border: 0;
+    font-size:14px;
+    height: 100%;
+    outline: none;
+    padding:5px 10px;
+}
+.search-input input::placeholder{
+    color:grey;
+    text-transform:capitalize;
+}
+.search-close{
+    display: none;
+    color:#fff;
+    background:rgb(106, 106, 106);
+    border-radius:50px;
+    padding:0 10px;
+    cursor:pointer;
+    transition:all .8s linear;
+    margin:0 auto;
+}
+.search-close:hover{
+    color:red;
+}
+.navbar-container{
+    position: relative;
+}
+
+.navbar-search-sm{
+    width:100%;
+    margin:5px auto;
+    display: none !important;
+    height: 100%;
+    padding: 0;
+}
+.navbar-sm-input input{
+    padding:5px 10px;
+    margin:15px auto;
+    outline:none;
+}
+.navbar-sm-search{
+    cursor:pointer;
+}
+.navbar-sm-search:hover{
+    color:red;
+}
+.navbar-search-sm input{
+    width:100%;
+    background:rgb(248,249,250);
+    border-bottom:1px solid black;
+}
+
+/* cart-icon fs-4=========================== */
+.cart-icon {
+    position: relative;
+ 
+}
+.cart-icon > p{
+    color:white;
+    background-color: #f12f2f;
+    padding:1px 5px;
+    font-size:0.6rem;
+    border-radius:2px;
+    font-weight: bold;
+    position: absolute;
+    top:10%;
+    left:90%;
+    transform: translate(-50%,-50%);
+    z-index: 9999;
+}
+.cart-icon .active{
+    color:black
+}
+/* ====================END+========================= */
+@media screen and (max-width:767px){
+    .navbar-sm{
+        display:flex;
+    }
+    .navbar-container{
+        position: relative;
+        justify-content: start !important;
+    }
+    .navbar-search-sm{
+        display: flex !important;;
+    }
+    .navbar-ul{
+        width: auto !important;;
+        margin-left:auto !important;
+    }
+    .two-icon{
+        flex-grow:2;
+        justify-content: flex-end;
+        width: auto;;
+    }
+    #logout{
+        margin:auto 5px;
+    }
+    
+}
+@media screen and (max-width:568px){
+    .cart-icon{
+        font-size:18px
+    }
+    #logout{
+        font-size:12px;
+    }
+    .navbar{
+        padding:0;
+    }
+}
+/* Remove border from toggler */
+.navbar-toggler {
+    border:0 !important;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+
+/* Lines of the Toggler */
+.toggler-icon{
+    width: 30px;
+    height: 3px;
+    background-color: #e74c3c;
+    display: block;
+    transition: all 0.2s;
+}
+
+/* email verifcation- notication =============================== */
+
+.email-verification-notification{
+    display: flex;
+    font-size:12px;
+    align-items: center;
+    justify-content: center;
+    background:#233D4D;
+    color:#fff;
+}
+.email-red{
+    padding:2px 40px;
+    margin-left:10px;
+    cursor: pointer;
+    transition: all .3s linear;
+    color:#fff;
+    background-color: #e3230e;
+}
+.email-red:hover{
+    background-color: #a92617;
+}
+@media screen and (max-width:658px){
+    .email-verification-notification{
+        font-size:8px;
+    }
+    .email-red{
+        padding: 0 5px;
+    }
+    #logout{
+        padding:5px 9px !important;
+    }
+    .navbar-toggler{
+        padding:0;
+    }
+    .navbar-container{
+        padding:0;width:90%
+    }
+}
+/* --------------------faskldkflsad================================ */
+
+/* logout =========================== */
+/* logout================= */
+#logout{
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    border:1px solid rgb(132, 132, 132);
+    padding:5px 20px;
+    color:green;
+}
+.logout-username{
+    height:100%;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-text{
+    display: none;
+    position: absolute;
+    bottom: - 10%;
+    left: 9%;
+    padding: 5px 19px;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.logout-text:hover{
+    color:red;
+}
+.cart-icon:hover{
+    color:black;
+}
+/* end ============ */
+
