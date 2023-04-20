@@ -76,7 +76,7 @@
     padding:0 10px;
     border-radius:5px;
 }
-.message-textarea{
+#message-textarea{
     width:100%;
     padding:10px;
     height:150px;
@@ -232,3 +232,20 @@
         margin:10px 0;
     }
 }
+
+
+/* submit success message ============================================================ */
+.submit_message{
+    position:fixed;
+    top:20%;
+    left:0px;
+    z-index:999;
+    transition:all 1s ease;
+}
+.submit_message > p{
+    background-color:tomato;
+    padding:10px 25px;
+    color:white;
+    border-radius:0px;
+}
+/* ++++============================END================================================ */

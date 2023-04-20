@@ -17,21 +17,33 @@ import axios from 'axios';
 function Contact (){
     useEffect(()=>{
         AOS.init();
+
+        if(message){
+            setTimeout(function(){
+                set_message(false);
+            },5000)
+        }
     })
 
     const[contact,set_contact] = useState({name:"",email:"",phone:"",message:""});
+    const[message,set_message] = useState();
 
-    console.log(contact);
+
 
    async function SumitContact(event){
         event.preventDefault();
-    
-       console.log("working ")
+     
         try{
             const response = await axios.post("http://localhost:3001/contact",contact);
+            console.log(response.data.success);
+            set_message(response.data.success);
+            let allvalue = document.querySelectorAll(".contact-input" );
             
-            console.log(response);
-
+             allvalue.forEach(element => {
+                console.log(element.value);
+                element.value = "";
+            });
+          
 
         }catch(err){
             console.log(err);
@@ -45,6 +57,19 @@ function Contact (){
     return(
         <div>
             <Navbar></Navbar>
+            
+            {/* message sucess submit ================================================= */}
+
+                {
+                    
+                    <div  style={{transform: `translateX(${message?"0%":"-100%"})`}}className='submit_message'>
+                        <p>Thank you for contact we will response soon.....</p>
+                        
+                    </div>
+                }
+
+
+             {/* end =================================END=============================== */}
             <div id="contact">
                 <div className="row contact-map container-fluid">
                     <div className="col-12">
@@ -75,19 +100,19 @@ function Contact (){
                         <form action="#" onSubmit={SumitContact}>
                             <div>
                             <label for="name" className="contact-form-label">your name <span className="contact-form-req">(Required)</span></label> <br />
-                            <input type="text" onChange={(e)=>set_contact({...contact,name:e.target.value})} className="contact-input" id="fname" name="fname" placeholder="Enter your name"/>
+                            <input type="text" className="contact-input" name ="contact" onChange={(e)=>set_contact({...contact,name:e.target.value})}   id="fname" placeholder="Enter your name" required/>
                             </div>
                             <div>
                             <label for="email" className="contact-form-label">your email <span className="contact-form-req">(Required)</span></label> <br />
-                            <input type="email" onChange={(e)=>set_contact({...contact,email:e.target.value})} className="contact-input" id="fname" name="fname" placeholder="Enter your email"/>
+                            <input type="email" className="contact-input"   name ="contact" onChange={(e)=>set_contact({...contact,email:e.target.value})}  id="fname"  placeholder="Enter your email" required/>
                             </div>
                             <div>
                             <label for="number" className="contact-form-label">your phone  number <span className="contact-form-req">(Required)</span></label> <br />
-                            <input type="number"   onChange={(e)=>set_contact({...contact,phone:e.target.value})} className="contact-input" id="fname" name="fname" placeholder="Enter your phone number"/>
+                            <input type="number" className="contact-input"  name ="contact"  onChange={(e)=>set_contact({...contact,phone:e.target.value})} id="fname"  placeholder="Enter your phone number" required/>
                             </div>
                            <div>
                            <label for="message" className="contact-form-label">your message <span className="contact-form-req">(Optional)</span></label> <br />
-                            <textarea name="message"  onChange={(e)=>set_contact({...contact,message:e.target.value})}className="message-textarea"  placeholder="Message..."></textarea>
+                            <textarea name="contact" className="contact-input"  id="message-textarea"  onChange={(e)=>set_contact({...contact,message:e.target.value})} placeholder="Message..." required></textarea>
                            </div>
 
                            <div className="contact-submit-btn">

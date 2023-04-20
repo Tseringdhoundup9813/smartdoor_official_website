@@ -44,7 +44,7 @@ function AdminNavbar(){
                         </div>
                         <div className="side-chat text-capitalize nav-item">
                         <NavLink to="/admin/chats" className="nav-link sidechatNav">
-                            <div className="side-icon"><i class="fa-regular fa-message"></i></div>chats
+                            <div className="side-icon"><i class="fa-regular fa-message"></i></div>Customer Message
                         </NavLink>
                         </div>
                         <div className="side-chat text-capitalize nav-item">
