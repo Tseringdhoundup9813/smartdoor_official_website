@@ -8,7 +8,7 @@ const path = require("path");
 const errorHander = require("./middleware/error");
 
 const app = express();
-// try
+
 const cors = require("cors");
 const { json } = require("body-parser");
 
