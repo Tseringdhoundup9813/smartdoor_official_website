@@ -50,6 +50,11 @@ function Home() {
     <div>
       <Navbar></Navbar>
       <div className="home-carousel">
+          {/* wall of color ============================================================ */}
+          <div className="wallcolor">
+
+        </div>
+        {/* ==============END============================================================= */}
         <div id="homecarousel" class="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button
@@ -169,7 +174,9 @@ function Home() {
                             </div> 
                         </div>
                     </div> */}
+              
           </div>
+          
           <button
             className="carousel-control-prev"
             type="button"
