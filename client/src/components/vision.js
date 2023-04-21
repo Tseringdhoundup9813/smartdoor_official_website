@@ -14,7 +14,7 @@ function Vision() {
           <div className="row vision-subhead">
             <div className="vision-detail col-8 align-items-center justify-content-center">
               <div className="vision-pro-say vision-line-height">
-                " Quality product"
+                " Quality product "
               </div>
             </div>
             <div className="vision-img col-2"></div>
