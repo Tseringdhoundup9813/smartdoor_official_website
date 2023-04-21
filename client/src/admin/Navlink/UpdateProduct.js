@@ -152,8 +152,7 @@ function UpdateProduct() {
                   </div>
                   <div className="up-cat">
                     <label className="text-capitalize ">Categories : </label>
-                    <select
-                      id="cars"
+                    <select id="cars"
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
@@ -161,13 +160,11 @@ function UpdateProduct() {
                         })
                       }
                       className="form-control mb-2"
-                      name=""
-                      id="upCat"
-                    >
-                      <option value="3d doors">3d doors</option>
-                      <option value="Double doors">Double doors</option>
-                      <option value="Canadian doors">Canadian doors</option>
-                      <option value="Membrance doors">Membrance doors</option>
+                      name="" >
+                      <option value="3D DOORS">3d doors</option>
+                      <option value="DOUBLE DOORS">Double doors</option>
+                      <option value="CANADA DOORS">Canadian doors</option>
+                      <option value="MEMBRANE DOORS">Membrance doors</option>
                     </select>
                   </div>
                 </div>

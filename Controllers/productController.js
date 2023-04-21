@@ -631,20 +631,24 @@ exports.AddCategoryColor = async(req,res)=>{
 
 // check admin or not ============================
 exports.CheckAdmin=async(req,res)=>{
-    console.log(req.params);
-    console.log("it is working");
-    try{
-
-        const checkuser = await User.find({_id:req.params.user_id})
-        if(checkuser[0].admin==true){
-           res.status(200).json({admin:true})
-        }
-        else{
-           res.status(200).json({admin:false})
    
+    try{
+     
+        const checkuser = await User.find({_id:req.params.user_id})
+        if(checkuser){
+            if(checkuser[0].admin==true){
+                res.status(200).json({admin:true})
+             }
+             else{
+                res.status(200).json({admin:false})
+        
+             }
         }
+       
     }catch(err){
         console.log(err);
+        res.status(404).json({admin:false})
+
     }
     
    
@@ -712,3 +716,17 @@ exports.Contact=async(req,res)=>{
     }
 }
 // 
+
+// Customer message ====================================================
+exports.GetCustomerMessage=async(req,res)=>{
+    try{
+        const data = await CustomerMessage.find({});
+        
+        res.status(200).json({data:data});
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+// ==========================END==========================================

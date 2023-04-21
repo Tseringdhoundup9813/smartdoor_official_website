@@ -38,10 +38,24 @@ const Login = (props) => {
     try {
       let response = await axios.post("https://node.smartdoors.com.np/login",formdata);
       console.log(response.data);
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user_id", response.data.id);
-      localStorage.setItem("username", response.data.username);
-      localStorage.setItem("email_verify", response.data.email_verify);
+
+
+      if(response.data.token!==undefined){
+        localStorage.setItem("token", response.data.token);
+
+      }
+      if(response.data.id!==undefined){
+        localStorage.setItem("user_id", response.data.id);
+
+      }
+      if(response.data.username!==undefined){
+        localStorage.setItem("username", response.data.username);
+
+      }
+      if(response.data.email_verify!==undefined){
+        localStorage.setItem("email_verify", response.data.email_verify);
+
+      }
       localStorage.setItem("loginSucess", true);
       setMessage(response.data.message);
       setLoginSucess(response.data.success);

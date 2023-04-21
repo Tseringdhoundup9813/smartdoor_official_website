@@ -2,44 +2,59 @@
 .customer-message-container{
     width:100%;
     margin-top:5%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+ 
 
    
 }
 
 .customer-message-list{
     width:70%;
-    margin:auto;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+   
+ 
 }
-.customer-message-list > ul{
-    width:80%;
-    border:1px solid grey;
+.customer-message-list > div:nth-child(1){
+    width:100%;
+  
     display: flex;
     justify-content: space-around;
     position: relative;
 }
-.customer-message-list > ul{
+.customer-message-list > div:nth-child(1){
     width:100%;
-    border:1px solid rgb(226, 224, 224);
+    border:1px solid rgb(224, 224, 224);
     display: flex;
     justify-content: space-around;
 
 }
-.customer-message-list > ul >li{
+.customer-message-list > div >li{
     list-style-type: none;
+    font-size:0.8rem;
+    padding:3px auto;
+    color:rgb(59, 59, 59);
+    
 }
 
 /* show message button click */
-.show_message{
+.delete_message{
     position: absolute;
     top:0px;
     left:0px;
-    padding:0px 10px;
+    padding:0px 5px;
     cursor: pointer;
     background-color:tomato;
-    border:1px solid tomato;
-    color:white;
+ 
+    color:white !important;
     font-weight: bold;
+    font-size:0.8rem;
+}
+.delete_message:hover{
+    background-color: red;
 }
 /* _----------------------END------------ */
 
@@ -48,16 +63,18 @@
     border:1px solid rgb(233, 233, 233);
     width:100%;
     border:none;
-    position:absolute;
-    top:110%;
-    color:rgb(29, 28, 28);
-    padding:0px;
-    font-family: Arial, Helvetica, sans-serif;
+    
+  
    
     
 }
 .customer-message > p{
-    display: none;
-    background-color: rgb(236, 236, 236);
+    padding:10px;
+    background-color: rgb(238, 237, 237);
+    color:rgb(51, 50, 50);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.8rem;
+
+
 }
 /* end========================== */
