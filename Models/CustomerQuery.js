@@ -17,6 +17,14 @@ const MessageScheme = new  mongoose.Schema({
 
     message:{
         type:String,
+    },
+    solve:{
+        type:Boolean,
+        default:false,
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now(),
     }
 })
 

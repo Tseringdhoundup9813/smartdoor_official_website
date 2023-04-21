@@ -34,6 +34,8 @@ Router.get("/khaltipayload/:order_id",productController.khaltidata)
 
 // contact ===========>
 Router.post("/contact",productController.Contact);
+// get Message 
+Router.get("/getusermessage",productController.GetCustomerMessage);
 
 
 
