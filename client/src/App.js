@@ -4,7 +4,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-
+// hi
 import { useState, useContext } from "react";
 
 // import Doorslidersystem from './components/Doorslidersystem';
@@ -62,7 +62,10 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Product />} />
       <Route path="products/page-view:productId" element={<Productview />} />
 
-      <Route path="/product-cart" element={<Protected Component={ProductCart} />} />
+      <Route
+        path="/product-cart"
+        element={<Protected Component={ProductCart} />}
+      />
       <Route path="/faqs" element={<Faqs />} />
       <Route path="/about/our-vision" element={<Vision />} />
       <Route path="/about/our-story" element={<Story />} />
@@ -70,26 +73,61 @@ const router = createBrowserRouter(
         path="product/buy-now"
         element={<Protected Component={BuyNow} />}
       />
-      <Route path="product/placeorder" element={<Protected Component={PlaceOrder} />} />
-      <Route path="product/order-tracking" element={<Protected Component={OrderTracking} />} />
+      <Route
+        path="product/placeorder"
+        element={<Protected Component={PlaceOrder} />}
+      />
+      <Route
+        path="product/order-tracking"
+        element={<Protected Component={OrderTracking} />}
+      />
       <Route path="/user/:id/verify/:token" element={<EmailVerification />} />
 
       <Route path="*" element={<NotFound />} />
 
       {/* for admin */}
       <Route path="/admin" element={<AdminLogin />} />
-      <Route path="/admin/dashboard" element={<AdminProtected Component={Dashboard} />} />
-      <Route path="/admin/order" element={<AdminProtected Component={List} />} />
-      <Route path="admin/add-products" element={<AdminProtected Component={UpdateProduct} />} />
-      <Route path="admin/categories" element={<AddProduct Component={Categories} />} />
+      <Route
+        path="/admin/dashboard"
+        element={<AdminProtected Component={Dashboard} />}
+      />
+      <Route
+        path="/admin/order"
+        element={<AdminProtected Component={List} />}
+      />
+      <Route
+        path="admin/add-products"
+        element={<AdminProtected Component={UpdateProduct} />}
+      />
+      <Route
+        path="admin/categories"
+        element={<AddProduct Component={Categories} />}
+      />
 
-      <Route path="admin/chats" element={<AdminProtected Component={Chats} />} />
-      <Route path="admin/inbox" element={<AdminProtected Component={Inbox}/>} />
-      <Route path="admin/pages" element={<AdminProtected Component={Pages} />} />
-      <Route path="admin/media" element={<AdminProtected Component={Media}/>} />
-      <Route path="admin/products" element={<AdminProtected Component={Products}/>} />
-      <Route path="admin/products/edit/:productId" element={<AdminProtected Component={UpdateProduct}/>} />
-
+      <Route
+        path="admin/chats"
+        element={<AdminProtected Component={Chats} />}
+      />
+      <Route
+        path="admin/inbox"
+        element={<AdminProtected Component={Inbox} />}
+      />
+      <Route
+        path="admin/pages"
+        element={<AdminProtected Component={Pages} />}
+      />
+      <Route
+        path="admin/media"
+        element={<AdminProtected Component={Media} />}
+      />
+      <Route
+        path="admin/products"
+        element={<AdminProtected Component={Products} />}
+      />
+      <Route
+        path="admin/products/edit/:productId"
+        element={<AdminProtected Component={UpdateProduct} />}
+      />
     </Route>
   )
 );
