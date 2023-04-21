@@ -720,7 +720,7 @@ exports.Contact=async(req,res)=>{
 // Customer message ====================================================
 exports.GetCustomerMessage=async(req,res)=>{
     try{
-        const data = await CustomerMessage.find({});
+        const data = await CustomerMessage.find({}).sort({createdAt:-1});
         
         res.status(200).json({data:data});
     }
@@ -730,3 +730,31 @@ exports.GetCustomerMessage=async(req,res)=>{
 }
 
 // ==========================END==========================================
+
+// Customer message delete==============================================
+exports.CustomerMessageDelete=async(req,res)=>{
+    console.log(req.params);
+    try{
+        const messagedelete = await CustomerMessage.deleteOne({_id:req.params.id})
+        res.status(200).json(messagedelete);
+
+    }catch(err){
+        console.log(err);
+    }
+}
+
+// 
+// customer message Solve Check
+
+
+exports.CustomerMessageCheck=async(req,res)=>{
+    console.log(req.params);
+    try{
+        const updatemessage = await CustomerMessage.findByIdAndUpdate({_id:req.params.id},{solve:true});
+        res.status(200).json({check:true});
+    }
+    catch(err){
+        res.status(200).json({check:false});
+
+    }
+}

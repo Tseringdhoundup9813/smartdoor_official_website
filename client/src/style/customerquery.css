@@ -20,7 +20,6 @@
 }
 .customer-message-list > div:nth-child(1){
     width:100%;
-  
     display: flex;
     justify-content: space-around;
     position: relative;
@@ -74,7 +73,15 @@
     color:rgb(51, 50, 50);
     font-family: Arial, Helvetica, sans-serif;
     font-size:0.8rem;
+    border-bottom:1px solid orange;
+
 
 
 }
 /* end========================== */
+
+/* solve ================================ */
+.solve{
+    cursor:pointer;
+}
+/* solve ===================================== */
