@@ -267,6 +267,9 @@ function Productview() {
   const heart = () => {
     console.log("hi");
   };
+
+  //url for share
+  const location = window.location.href;
   return (
     <div id="pv-view">
       <Navbar></Navbar>
@@ -422,9 +425,9 @@ function Productview() {
             <div className="pv-detail-share">
               <FacebookShareButton
                 className="pv-fb"
-                url="https://www.npmjs.com/package/react-share"
-                quote={"hello suscriber"}
-                hashtag="#React"
+                url={location}
+                quote={"smart doors nepal"}
+                hashtag="#smartdoors.com.np"
               >
                 <FacebookIcon
                   logoFillColor="white"
@@ -434,9 +437,9 @@ function Productview() {
               </FacebookShareButton>
               <WhatsappShareButton
                 className="pv-fb"
-                url="https://www.npmjs.com/package/react-share"
-                quote={"hello suscriber"}
-                hashtag="#React"
+                url={location}
+                quote={"smart doors nepal"}
+                hashtag="#smartdoors.com.np"
               >
                 <WhatsappIcon
                   logoFillColor="white"
@@ -446,9 +449,9 @@ function Productview() {
               </WhatsappShareButton>
               <EmailShareButton
                 className="pv-fb"
-                url="https://www.npmjs.com/package/react-share"
-                quote={"hello suscriber"}
-                hashtag="#React"
+                url={location}
+                quote={"smart doors nepal"}
+                hashtag="#smartdoors.com.np"
               >
                 <EmailIcon
                   logoFillColor="white"
@@ -458,9 +461,9 @@ function Productview() {
               </EmailShareButton>
               <TwitterShareButton
                 className="pv-fb"
-                url="https://www.npmjs.com/package/react-share"
-                quote={"hello suscriber"}
-                hashtag="#React"
+                url={location}
+                quote={"smart doors nepal"}
+                hashtag="#smartdoors.com.np"
               >
                 <TwitterIcon
                   logoFillColor="white"
