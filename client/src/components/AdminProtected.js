@@ -18,15 +18,14 @@ function AdminProtected(props) {
 
        async function CheckAdmin(){
             try{
-                console.log("api working");
-                console.log(localStorage.getItem("user_id"));
+             
                 const product = await axios.get(`https://node.smartdoors.com.np/checkadmin/${localStorage.getItem("user_id")}`)
-                console.log(product);
+         
                 if(!product.data.admin){
                     navigate("/")
                 }  
             }catch(err){
-               console.log(err);
+              
                navigate("/")
             }
        }

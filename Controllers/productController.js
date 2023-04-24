@@ -758,3 +758,14 @@ exports.CustomerMessageCheck=async(req,res)=>{
 
     }
 }
+
+// admin product update ===========================================
+exports.ProductUpdate=async=(req,res)=>{
+        console.log(req.params);
+        console.log(req.body);
+        const {name,description,price,discount,colors,categories,size} = req.body;
+        console.log(name);
+       
+}
+
+// ===============END============================================

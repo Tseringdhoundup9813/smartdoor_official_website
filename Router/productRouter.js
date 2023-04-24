@@ -58,6 +58,10 @@ Router.post("/addcategorycolor/",productController.AddCategoryName);
 Router.get("/checkadmin/:user_id/",productController.CheckAdmin);
 Router.get("/orderstatus/:order_id/:status",productController.OrderStatus);
 
+// product update =================================================
+Router.post("/productupdate/:id",productController.ProductUpdate);
+// end=
+
 
 
 // 

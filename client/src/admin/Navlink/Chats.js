@@ -19,7 +19,7 @@ export default function Chats() {
       // Get a list of message from server ==================================
         async function GetMessage(){
           try{
-            const response = await axios.get("http://localhost:3001/getusermessage");
+            const response = await axios.get("https://node.smartdoors.com.np/getusermessage");
             set_customer_message(response.data.data);
             console.log("working api")
 
@@ -57,7 +57,7 @@ export default function Chats() {
    async function DeleteMessage(_id){
       try{
      
-        const response = await axios.get(`http://localhost:3001/customermessagedelete/${_id}`);
+        const response = await axios.get(`https://node.smartdoors.com.np/customermessagedelete/${_id}`);
         
         if(response.data.deletedCount==1){
           set_customer_message_delete_status(true);
@@ -74,7 +74,7 @@ export default function Chats() {
    async function CustomerSolveSubmit(_id){
     try{
       
-      const response = await axios.get(`http://localhost:3001/customermessagesolve/${_id}`);
+      const response = await axios.get(`https://node.smartdoors.com.np/customermessagesolve/${_id}`);
       set_check(response.data.check);
       window.location.reload(true)
     

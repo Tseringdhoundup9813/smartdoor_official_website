@@ -93,12 +93,39 @@
     grid-template-columns: repeat(4, 1fr) !important;
 }
 /* updateproduct */
+/* admin  succesfully upload  message ============================================= */
 .admin-message{
-    color:#fff;
-    background:rgb(4, 141, 4);
-    padding:10px;
+    color:#ffffff;
+    width:20%;
+    background:rgb(34, 28, 26);
+    padding:14px;
     font-size:14px;
+    position:fixed;
+    top:20%;
+    right:0px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    transition:all 0.2s ease;
+    border-radius:2px 0px 0px 2px;
+   
 }
+
+.fa-circle-check{
+    color:green;
+    font-size:20px;
+}
+/* END================================================================= */
 .category{
     vertical-align: middle;
+}
+
+/* front image-upload  */
+
+.front_image_upload{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
