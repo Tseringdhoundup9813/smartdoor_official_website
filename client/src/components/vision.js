@@ -12,13 +12,18 @@ function Vision() {
         <div className="col-12 vision-container">
           <div className="vision-head">Our vision</div>
           <div className="row vision-subhead">
-            <div className="vision-detail col-8 align-items-center justify-content-center">
+            <div className="vision-img"></div>
+            <div className="vision-quote">
+              "Quality of a product is acertained by the value of the product.
+              We provide qualtiy and life-time gaurantee product."
+            </div>
+            {/* <div className="vision-detail col-8 align-items-center justify-content-center">
               <div className="vision-pro-say vision-line-height">
                 " Quality product "
               </div>
             </div>
-            <div className="vision-img col-2"></div>
-            <div className="col-12 vision-subtitle vision-line-height">
+            <div className="vision-img col-2"></div> */}
+            <div className="col-12 text-justify vision-subtitle vision-line-height">
               Our mission at Doors Manufacturing Company of Nepal is to provide
               high-quality, durable and stylish doors to our customers. We
               strive to create an exceptional customer experience by focusing on

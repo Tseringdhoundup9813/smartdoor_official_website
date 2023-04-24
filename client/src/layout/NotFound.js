@@ -1,12 +1,13 @@
-import { NavLink } from "react-router-dom"
-
+import { NavLink } from "react-router-dom";
+import notfoundimg from "../image/notfound/page.png";
 export default function NotFound() {
   return (
-    <div>
+    <div className=" text-center py-5">
       <h2>Page not found!</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia alias cupiditate ad nostrum doloribus iste tempora quisquam excepturi repellat, fugit cumque dolore magni possimus inventore neque provident! Sunt, quo eos?</p>
-
-      <p>Go to the <NavLink to="/">Homepage</NavLink>.</p>
+      <p>
+        Go to the <NavLink to="/">Homepage</NavLink>.
+      </p>
+      <img src={notfoundimg} className="w-100" alt="" />
     </div>
-  )
+  );
 }

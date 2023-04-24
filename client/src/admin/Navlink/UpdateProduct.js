@@ -11,54 +11,36 @@ import AdminNavbar from "../AdminNavbar";
 //footer
 import AdminTop from "../AdminTop";
 
-
-
 function UpdateProduct() {
-
-
-
-
   const { productId } = useParams();
   const [product, setproduct] = useState();
   const [message, setMessage] = useState("");
-  
 
-   
   const [productupload, setproductupload] = useState({
-    name:"",
+    name: "",
     description: "",
     price: "",
-    front_img:"",
-    back_img:"",
+    front_img: "",
+    back_img: "",
     categories: "3D DOORS",
     color: "rose wood",
     size: "80-32",
     discount: "0",
   });
 
-  
-
-
-
   useEffect(() => {
     productDetail();
- 
-    
-    // message get value set message to nothing after a second 
-      if(message.length > 0){
-      
-        setTimeout(function(){
-          setMessage("");
 
-        },5000)
-      }
-
+    // message get value set message to nothing after a second
+    if (message.length > 0) {
+      setTimeout(function () {
+        setMessage("");
+      }, 10000);
+    }
 
     // end========================================
-  }, [message,productupload]);
-  
-  
-  
+  }, [message, productupload]);
+
   console.log(productupload);
   // sucessfully updated
 
@@ -68,11 +50,10 @@ function UpdateProduct() {
         `https://node.smartdoors.com.np/productdetail/${productId}`
       );
       setproduct(product.data.data);
-     
-      
-       // set set product value
 
-       // 
+      // set set product value
+
+      //
     } catch (err) {
       console.log(err);
     }
@@ -80,12 +61,12 @@ function UpdateProduct() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    
-    // // if productupload is not defind then assign actual value 
-    
+
+    // // if productupload is not defind then assign actual value
+
     // if(!productupload.name.length>0){
     //   setproductupload({...productupload,name:product.name})
-   
+
     // }
     // else{
 
@@ -94,7 +75,6 @@ function UpdateProduct() {
     // if(!productupload.price.length>0){
     //   console.log("price working");
     //   setproductupload({...productupload,price:product.price})
-     
 
     // }
     // else{
@@ -102,47 +82,38 @@ function UpdateProduct() {
     // }
     // if(!productupload.size.length>0){
     //   setproductupload({...productupload,size:product.size})
-    
+
     // }else{}
     // if(!productupload.categories.length>0){
     //   setproductupload({...productupload,categories:product.categories})
-    
+
     // }else{}
     // if(!productupload.color.length>0){
     //   setproductupload({...productupload,color:product.color})
 
-    
     // }else{}
     // if(!productupload.discount.length>0){
     //   setproductupload({...productupload,discount:product.discount})
-      
-    
+
     // }else{}
-    
+
     // if(productupload.img[0]==undefined){
     //   console.log("not add");
     //   setproductupload({...productupload,img:[product.img[0]]})
-      
-    
+
     // }else{}
     // if(productupload.img[1]==undefined){
     //   console.log("not add");
     //   setproductupload({...productupload,img:[product.img[1]]})
-      
-    
+
     // }else{}
-    
+
     // console.log(productupload);
-    
-    
-    
 
     // ENd============================
 
-
-
     const formdata = new FormData();
-    
+
     formdata.append("name", productupload.name);
     formdata.append("description", productupload.description);
     formdata.append("price", productupload.price);
@@ -156,20 +127,21 @@ function UpdateProduct() {
     formdata.append("colors", productupload.color);
     formdata.append("size", productupload.size);
     console.log(formdata);
-    
-    
+
     axios
-      .post(`http://localhost:3001/productupdate/${productId}`,{productupload})
+      .post(`http://localhost:3001/productupdate/${productId}`, {
+        productupload,
+      })
       .then((res) => {
         setMessage(res.data.message);
       })
       .catch((err) => {
         console.log(err);
-        setMessage("product is not add")
-        // product successfully upload tick to red 
-          const tick = document.querySelector(".fa-circle-check");
-          tick.color = "red"
-        // 
+        setMessage("product is not add");
+        // product successfully upload tick to red
+        const tick = document.querySelector(".fa-circle-check");
+        tick.color = "red";
+        //
       });
   };
 
@@ -181,15 +153,14 @@ function UpdateProduct() {
           <AdminTop></AdminTop>
           <form onSubmit={onSubmit}>
             <div className="row-uproduct row">
-
-
-
               {/* admin message =============== */}
-                <h1 className="admin-message" style={{opacity:`${message.length>0?"1":"0"}`}}><i class="fa-regular fa-circle-check" ></i>{message}</h1>
+              <h1
+                className="admin-message"
+                style={{ opacity: `${message.length > 0 ? "1" : "0"}` }}
+              >
+                {message}
+              </h1>
               {/* =============END==================== */}
-
-
-
 
               <div className="col d-flex align-items-center justify-content-between">
                 <NavLink to="/admin/products">
@@ -212,8 +183,7 @@ function UpdateProduct() {
                     type="text"
                     name="input_value"
                     required
-                    defaultValue={product && product.name}  
-                  
+                    defaultValue={product && product.name}
                     onChange={(e) =>
                       setproductupload({
                         ...productupload,
@@ -229,7 +199,6 @@ function UpdateProduct() {
                     type="number"
                     name="input_value"
                     required
-
                     defaultValue={product && product.price}
                     onChange={(e) =>
                       setproductupload({
@@ -242,19 +211,22 @@ function UpdateProduct() {
                 <div className="up-size">
                   <div className="up-size ">
                     <label className=" text-capitalize ">Size : </label>
-                    <select className="form-control mb-2"  onChange={(e) =>
+                    <select
+                      className="form-control mb-2"
+                      onChange={(e) =>
                         setproductupload({
                           ...productupload,
                           size: e.target.value,
                         })
-                        
                       }
                       name="input_value"
                       id="upSize"
                       required
-                      defaultValue={product && product.size} 
+                      defaultValue={product && product.size}
                     >
-                      <option value={product&&product.size} selected>{product && product.size}</option>
+                      <option value={product && product.size} selected>
+                        {product && product.size}
+                      </option>
 
                       <option value="80-32">80 * 32</option>
                       <option value="80-26">80 * 26</option>
@@ -268,7 +240,8 @@ function UpdateProduct() {
                   </div>
                   <div className="up-cat">
                     <label className="text-capitalize ">Categories : </label>
-                    <select id="cars"
+                    <select
+                      id="cars"
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
@@ -277,10 +250,13 @@ function UpdateProduct() {
                       }
                       className="form-control mb-2"
                       required
-                      defaultValue={product && product.categories} 
-                      name="input_value" >
-                      <option value={product&&product.categories} selected>{product && product.categories}</option>
-                      
+                      defaultValue={product && product.categories}
+                      name="input_value"
+                    >
+                      <option value={product && product.categories} selected>
+                        {product && product.categories}
+                      </option>
+
                       <option value="3D DOORS">3d doors</option>
                       <option value="DOUBLE DOORS">Double doors</option>
                       <option value="CANADA DOORS">Canadian doors</option>
@@ -297,7 +273,6 @@ function UpdateProduct() {
                     className="form-control"
                     name="input_value"
                     required
-
                     defaultValue={product && product.color}
                     onChange={(e) =>
                       setproductupload({
@@ -322,10 +297,7 @@ function UpdateProduct() {
                     type="number"
                     min="1"
                     max="100"
-                    defaultValue={product && product.discount} 
-
-                  
-
+                    defaultValue={product && product.discount}
                     onChange={(e) =>
                       setproductupload({
                         ...productupload,
@@ -338,7 +310,7 @@ function UpdateProduct() {
                   <label className=" text-capitalize">description</label>
                   <textarea
                     className="form-control"
-                    defaultValue={product && product.description} 
+                    defaultValue={product && product.description}
                     name="input_value"
                     id=""
                     cols="30"
@@ -350,13 +322,17 @@ function UpdateProduct() {
                       })
                     }
                     required
-
                   ></textarea>
                 </div>
               </div>
               <div className="col-5 up-img">
                 <div className="front-img">
-                  <div className="img front_image_upload" style={{backgroundImage:`url(${product&&product.img[0]})`}}></div>
+                  <div
+                    className="img front_image_upload"
+                    style={{
+                      backgroundImage: `url(${product && product.img[0]})`,
+                    }}
+                  ></div>
                   <div className="img-upload">
                     <input
                       type="file"
@@ -364,27 +340,31 @@ function UpdateProduct() {
                       className="front-image"
                       onChange={(e) =>
                         setproductupload({
-                          ...productupload,front_img:e.target.value,
+                          ...productupload,
+                          front_img: e.target.value,
                         })
                       }
-                   
-
                     />
                   </div>
                 </div>
 
-                <div className="back-img" >
-                  <div className="img   front_image_upload " id="back_img" style={{backgroundImage:`url(${product&&product.img[1]})`}}  ></div>
+                <div className="back-img">
+                  <div
+                    className="img   front_image_upload "
+                    id="back_img"
+                    style={{
+                      backgroundImage: `url(${product && product.img[1]})`,
+                    }}
+                  ></div>
                   <div className="img-upload">
                     <input
-                   
-
                       type="file"
                       name="testImage"
                       className="back-image"
                       onChange={(e) =>
                         setproductupload({
-                          ...productupload,back_img:e.target.value,
+                          ...productupload,
+                          back_img: e.target.value,
                         })
                       }
                     />
