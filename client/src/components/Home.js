@@ -50,10 +50,8 @@ function Home() {
     <div>
       <Navbar></Navbar>
       <div className="home-carousel">
-          {/* wall of color ============================================================ */}
-          <div className="wallcolor">
-
-        </div>
+        {/* wall of color ============================================================ */}
+        <div className="wallcolor"></div>
         {/* ==============END============================================================= */}
         <div id="homecarousel" class="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
@@ -174,9 +172,8 @@ function Home() {
                             </div> 
                         </div>
                     </div> */}
-              
           </div>
-          
+
           <button
             className="carousel-control-prev"
             type="button"
@@ -356,7 +353,7 @@ function Home() {
                     <i class="fa-solid fa-quote-left"></i>
                   </div>
                   <div className="testomial-title">
-                    <div className="testo-name">ram babu gurung</div>
+                    <div className="testo-name">Suraj</div>
                     <div className="testo-position"> - businessman</div>
                   </div>
                   <div className="testo-head">amazing customer service</div>
@@ -375,16 +372,16 @@ function Home() {
             </div>
             <div class="carousel-item" data-bs-interval="2000">
               <div className="row row-carousel-item">
-                <div className="col-md-4  col-sm-12 testomial-img"></div>
+                <div className="col-md-4  col-sm-12 testomial-img1"></div>
                 <div className="col-md-8 col-sm-12 testomial-detail">
                   <div className="testo-quote-left">
                     <i class="fa-solid fa-quote-left"></i>
                   </div>
                   <div className="testomial-title">
-                    <div className="testo-name">ram babu gurung</div>
+                    <div className="testo-name">Pravesh</div>
                     <div className="testo-position"> - businessman</div>
                   </div>
-                  <div className="testo-head">amazing customer service</div>
+                  <div className="testo-head">Quality Product</div>
                   <div className="testo-para">
                     We have purchased this for our office space and are
                     extremely thankful for an entire team for their patience and
@@ -400,22 +397,19 @@ function Home() {
             </div>
             <div class="carousel-item">
               <div className="row row-carousel-item">
-                <div className="col-md-4  col-sm-12 testomial-img"></div>
+                <div className="col-md-4  col-sm-12 testomial-img2"></div>
                 <div className="col-md-8 col-sm-12 testomial-detail">
                   <div className="testo-quote-left">
                     <i class="fa-solid fa-quote-left"></i>
                   </div>
                   <div className="testomial-title">
-                    <div className="testo-name">ram babu gurung</div>
+                    <div className="testo-name">Sita</div>
                     <div className="testo-position"> - businessman</div>
                   </div>
-                  <div className="testo-head">amazing customer service</div>
+                  <div className="testo-head">Affordable Price</div>
                   <div className="testo-para">
-                    We have purchased this for our office space and are
-                    extremely thankful for an entire team for their patience and
-                    information provided for our purchase related decisions.
-                    Material hardness can be ensured on the spot and every doors
-                    are perfectly...
+                    Product here can not be compared to others. cheap and
+                    affortable.
                     <div className="testo-quote-right">
                       <i class="fa-solid fa-quote-right"></i>
                     </div>

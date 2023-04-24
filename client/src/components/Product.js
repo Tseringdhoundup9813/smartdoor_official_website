@@ -462,10 +462,16 @@ function Product() {
         {/* =================product-view============= */}
         <div className="col-sm-9 col-xm-12" id="product-view">
           <div className="show-product">
+            {DeleteMessage ? (
+              <img
+                className="notfoundImg"
+                src={"./Image/no-products.png"}
+              ></img>
+            ) : (
+              ""
+            )}
             <div className="show-card">
               {/* // product is not found ================================================= */}
-
-              {DeleteMessage ? <img src={"./Image/no-products.jpg"}></img> : ""}
 
               {allproduct.map((product, key) => {
                 return (

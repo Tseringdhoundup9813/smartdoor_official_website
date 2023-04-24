@@ -2,11 +2,13 @@
 import "../style/Footer.css";
 import { NavLink } from "react-router-dom";
 
+import { ScrollRestoration } from "react-router-dom";
 function Footer() {
   return (
     <div>
       <div className="footer">
         <div className="row-footer row">
+          <ScrollRestoration></ScrollRestoration>
           <div className="col-sm-3 col-6">
             <div className="footer-title text-capitalize">About Us</div>
             <div className="footer-about-us">
@@ -18,6 +20,7 @@ function Footer() {
           </div>
           <div className="col-sm-3 col-6">
             <div className="footer-title">company</div>
+
             <div className="footer-ul">
               <li>
                 <NavLink to="/about/our-vision" className="nav-link">
@@ -39,11 +42,11 @@ function Footer() {
           <div className="col-sm-3 col-6">
             <div className="footer-title">Get help</div>
             <div className="footer-ul">
-              <li>
+              {/* <li>
                 <NavLink to="/faqs" className="nav-link">
                   FAQs
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/contact" className="nav-link">
                   Contact Us

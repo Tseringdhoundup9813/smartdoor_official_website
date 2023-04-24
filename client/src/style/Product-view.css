@@ -355,6 +355,9 @@
   justify-content: space-around;
 }
 
+.filter-col {
+  cursor: pointer;
+}
 /* =========like row======== */
 .like-row {
   width: 90%;
