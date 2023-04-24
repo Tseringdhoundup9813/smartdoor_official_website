@@ -19,7 +19,6 @@ import Admin from "./layout/AdminLayout";
 import ProductCart from "./components/productCart";
 import Faqs from "./components/Faqs";
 import Vision from "./components/vision";
-import Story from "./components/Story";
 import NotFound from "./layout/NotFound";
 import OrderTracking from "./components/OrderTracking";
 
@@ -68,7 +67,6 @@ const router = createBrowserRouter(
       />
       <Route path="/faqs" element={<Faqs />} />
       <Route path="/about/our-vision" element={<Vision />} />
-      <Route path="/about/our-story" element={<Story />} />
       <Route
         path="product/buy-now"
         element={<Protected Component={BuyNow} />}

@@ -37,6 +37,20 @@ import Footer from "../components/Footer";
 
 // global varaible
 import { loginContext } from "./Context";
+
+//share button
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} from "react-share";
+import {
+  FacebookIcon,
+  WhatsappIcon,
+  TwitterIcon,
+  EmailIcon,
+} from "react-share";
 function SampleNextArrow(props) {
   // product id
 
@@ -152,7 +166,6 @@ function Productview() {
     // =================END+==============================
     // ======================
     // product detail fetch from server==============================================
-   
 
     //===============END=========================
 
@@ -396,29 +409,65 @@ function Productview() {
           {/* -================= */}
 
           <div id="pv-more-detail">
-            <div className="pv-product-detail  d-flex justify-content-between">
+            <div
+              className="pv-product-detail  pv-shareicon d-flex justify-content-between"
+              onClick={shareIcon}
+            >
               <div className="pv-title">Share</div>
-              <div className="pv-product-detail-icon" onClick={shareIcon}>
+              <div className="pv-product-detail-icon d-flex justify-content-center align-items-center fs-3">
                 {share ? "-" : "+"}
               </div>
             </div>
 
             <div className="pv-detail-share">
-              <div className="pv-fb">
-                <i class="fa-brands fa-facebook"></i>
-              </div>
-              <div className="pv-linked">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <div className="pv-linked">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <div className="pv-linked">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <div className="pv-linked">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
+              <FacebookShareButton
+                className="pv-fb"
+                url="https://www.npmjs.com/package/react-share"
+                quote={"hello suscriber"}
+                hashtag="#React"
+              >
+                <FacebookIcon
+                  logoFillColor="white"
+                  size="40px"
+                  round={true}
+                ></FacebookIcon>
+              </FacebookShareButton>
+              <WhatsappShareButton
+                className="pv-fb"
+                url="https://www.npmjs.com/package/react-share"
+                quote={"hello suscriber"}
+                hashtag="#React"
+              >
+                <WhatsappIcon
+                  logoFillColor="white"
+                  size="40px"
+                  round={true}
+                ></WhatsappIcon>
+              </WhatsappShareButton>
+              <EmailShareButton
+                className="pv-fb"
+                url="https://www.npmjs.com/package/react-share"
+                quote={"hello suscriber"}
+                hashtag="#React"
+              >
+                <EmailIcon
+                  logoFillColor="white"
+                  size="40px"
+                  round={true}
+                ></EmailIcon>
+              </EmailShareButton>
+              <TwitterShareButton
+                className="pv-fb"
+                url="https://www.npmjs.com/package/react-share"
+                quote={"hello suscriber"}
+                hashtag="#React"
+              >
+                <TwitterIcon
+                  logoFillColor="white"
+                  size="40px"
+                  round={true}
+                ></TwitterIcon>
+              </TwitterShareButton>
             </div>
           </div>
         </div>
