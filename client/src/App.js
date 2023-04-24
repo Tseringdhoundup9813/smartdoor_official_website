@@ -37,7 +37,7 @@ import Inbox from "./admin/Navlink/Inbox";
 import Pages from "./admin/Navlink/Pages";
 import Media from "./admin/Navlink/Media";
 
-import AddProduct from "./components/Admin";
+import AddProduct from "./admin/Navlink/AddProduct";
 import UpdateProduct from "./admin/Navlink/UpdateProduct";
 import Categories from "./admin/Navlink/Categories";
 
@@ -92,7 +92,7 @@ const router = createBrowserRouter(
       />
       <Route
         path="admin/add-products"
-        element={<AdminProtected Component={UpdateProduct} />}
+        element={<AdminProtected Component={AddProduct} />}
       />
       <Route
         path="admin/categories"

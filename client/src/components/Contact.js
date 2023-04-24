@@ -34,7 +34,7 @@ function Contact (){
         event.preventDefault();
      
         try{
-            const response = await axios.post("http://localhost:3001/contact",contact);
+            const response = await axios.post("https://node.smartdoors.com.np/contact",contact);
             console.log(response.data.success);
             set_message(response.data.success);
             let allvalue = document.querySelectorAll(".contact-input" );

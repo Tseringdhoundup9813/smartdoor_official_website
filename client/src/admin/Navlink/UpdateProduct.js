@@ -12,19 +12,21 @@ import AdminNavbar from "../AdminNavbar";
 import AdminTop from "../AdminTop";
 
 function UpdateProduct() {
+  const { productId } = useParams();
+  const [product, setproduct] = useState();
+  const [message, setMessage] = useState("");
+
   const [productupload, setproductupload] = useState({
     name: "",
     description: "",
     price: "",
-    img: [],
+    front_img: "",
+    back_img: "",
     categories: "3D DOORS",
     color: "rose wood",
     size: "80-32",
     discount: "0",
   });
-  const { productId } = useParams();
-  const [product, setproduct] = useState();
-  const [message, setMessage] = useState("");
 
   useEffect(() => {
     productDetail();
@@ -37,8 +39,9 @@ function UpdateProduct() {
     }
 
     // end========================================
-  }, [message]);
+  }, [message, productupload]);
 
+  console.log(productupload);
   // sucessfully updated
 
   async function productDetail() {
@@ -46,8 +49,11 @@ function UpdateProduct() {
       const product = await axios.get(
         `https://node.smartdoors.com.np/productdetail/${productId}`
       );
-
       setproduct(product.data.data);
+
+      // set set product value
+
+      //
     } catch (err) {
       console.log(err);
     }
@@ -56,23 +62,58 @@ function UpdateProduct() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // set value to null when sumit ===============================
+    // // if productupload is not defind then assign actual value
 
-    let input_value = e.target.input_value;
-    input_value.forEach((input_tag) => {
-      input_tag.value = "";
-    });
+    // if(!productupload.name.length>0){
+    //   setproductupload({...productupload,name:product.name})
 
-    // image value to nulll
-    let img_value = e.target.testImage;
+    // }
+    // else{
 
-    img_value.forEach((img) => {
-      console.log(img.value);
-      img.value = "";
-    });
+    // }
 
-    // =END======================================
+    // if(!productupload.price.length>0){
+    //   console.log("price working");
+    //   setproductupload({...productupload,price:product.price})
+
+    // }
+    // else{
+
+    // }
+    // if(!productupload.size.length>0){
+    //   setproductupload({...productupload,size:product.size})
+
+    // }else{}
+    // if(!productupload.categories.length>0){
+    //   setproductupload({...productupload,categories:product.categories})
+
+    // }else{}
+    // if(!productupload.color.length>0){
+    //   setproductupload({...productupload,color:product.color})
+
+    // }else{}
+    // if(!productupload.discount.length>0){
+    //   setproductupload({...productupload,discount:product.discount})
+
+    // }else{}
+
+    // if(productupload.img[0]==undefined){
+    //   console.log("not add");
+    //   setproductupload({...productupload,img:[product.img[0]]})
+
+    // }else{}
+    // if(productupload.img[1]==undefined){
+    //   console.log("not add");
+    //   setproductupload({...productupload,img:[product.img[1]]})
+
+    // }else{}
+
+    // console.log(productupload);
+
+    // ENd============================
+
     const formdata = new FormData();
+
     formdata.append("name", productupload.name);
     formdata.append("description", productupload.description);
     formdata.append("price", productupload.price);
@@ -85,13 +126,22 @@ function UpdateProduct() {
     formdata.append("categories", productupload.categories);
     formdata.append("colors", productupload.color);
     formdata.append("size", productupload.size);
+    console.log(formdata);
+
     axios
-      .post("https://node.smartdoors.com.np/upload", formdata, {})
+      .post(`http://localhost:3001/productupdate/${productId}`, {
+        productupload,
+      })
       .then((res) => {
         setMessage(res.data.message);
       })
       .catch((err) => {
         console.log(err);
+        setMessage("product is not add");
+        // product successfully upload tick to red
+        const tick = document.querySelector(".fa-circle-check");
+        tick.color = "red";
+        //
       });
   };
 
@@ -132,6 +182,7 @@ function UpdateProduct() {
                     className="mb-2 form-control"
                     type="text"
                     name="input_value"
+                    required
                     defaultValue={product && product.name}
                     onChange={(e) =>
                       setproductupload({
@@ -147,7 +198,8 @@ function UpdateProduct() {
                     className="mb-2 form-control"
                     type="number"
                     name="input_value"
-                    placeholder={product && product.price}
+                    required
+                    defaultValue={product && product.price}
                     onChange={(e) =>
                       setproductupload({
                         ...productupload,
@@ -169,7 +221,13 @@ function UpdateProduct() {
                       }
                       name="input_value"
                       id="upSize"
+                      required
+                      defaultValue={product && product.size}
                     >
+                      <option value={product && product.size} selected>
+                        {product && product.size}
+                      </option>
+
                       <option value="80-32">80 * 32</option>
                       <option value="80-26">80 * 26</option>
                       <option value="75-26">75 * 26</option>
@@ -191,8 +249,14 @@ function UpdateProduct() {
                         })
                       }
                       className="form-control mb-2"
+                      required
+                      defaultValue={product && product.categories}
                       name="input_value"
                     >
+                      <option value={product && product.categories} selected>
+                        {product && product.categories}
+                      </option>
+
                       <option value="3D DOORS">3d doors</option>
                       <option value="DOUBLE DOORS">Double doors</option>
                       <option value="CANADA DOORS">Canadian doors</option>
@@ -208,6 +272,7 @@ function UpdateProduct() {
                     id="cars"
                     className="form-control"
                     name="input_value"
+                    required
                     defaultValue={product && product.color}
                     onChange={(e) =>
                       setproductupload({
@@ -228,10 +293,11 @@ function UpdateProduct() {
                   <input
                     className="mb-2 form-control"
                     name="input_value"
-                    placeholder={product && product.discount}
+                    placeholder={"optinal"}
                     type="number"
                     min="1"
                     max="100"
+                    defaultValue={product && product.discount}
                     onChange={(e) =>
                       setproductupload({
                         ...productupload,
@@ -244,7 +310,7 @@ function UpdateProduct() {
                   <label className=" text-capitalize">description</label>
                   <textarea
                     className="form-control"
-                    placeholder={product && product.description}
+                    defaultValue={product && product.description}
                     name="input_value"
                     id=""
                     cols="30"
@@ -255,20 +321,27 @@ function UpdateProduct() {
                         description: e.target.value,
                       })
                     }
+                    required
                   ></textarea>
                 </div>
               </div>
               <div className="col-5 up-img">
                 <div className="front-img">
-                  <div className="img"></div>
+                  <div
+                    className="img front_image_upload"
+                    style={{
+                      backgroundImage: `url(${product && product.img[0]})`,
+                    }}
+                  ></div>
                   <div className="img-upload">
                     <input
                       type="file"
                       name="testImage"
+                      className="front-image"
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
-                          img: [...productupload.img, e.target.files[0]],
+                          front_img: e.target.value,
                         })
                       }
                     />
@@ -276,15 +349,22 @@ function UpdateProduct() {
                 </div>
 
                 <div className="back-img">
-                  <div className="img" id="back_img"></div>
+                  <div
+                    className="img   front_image_upload "
+                    id="back_img"
+                    style={{
+                      backgroundImage: `url(${product && product.img[1]})`,
+                    }}
+                  ></div>
                   <div className="img-upload">
                     <input
                       type="file"
                       name="testImage"
+                      className="back-image"
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
-                          img: [...productupload.img, e.target.files[0]],
+                          back_img: e.target.value,
                         })
                       }
                     />
