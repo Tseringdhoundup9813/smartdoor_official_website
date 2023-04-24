@@ -10,7 +10,6 @@ import { useParams, Navigate } from "react-router-dom";
 import AdminNavbar from "../AdminNavbar";
 //footer
 import AdminTop from "../AdminTop";
-import { Double } from "mongodb";
 
 function UpdateProduct() {
   const [productupload, setproductupload] = useState({
@@ -30,18 +29,15 @@ function UpdateProduct() {
   useEffect(() => {
     productDetail();
 
-    // message get value set message to nothing after a second 
-    if(message.length > 0){
-     
-      setTimeout(function(){
+    // message get value set message to nothing after a second
+    if (message.length > 0) {
+      setTimeout(function () {
         setMessage("");
-
-      },10000)
+      }, 10000);
     }
 
     // end========================================
   }, [message]);
-
 
   // sucessfully updated
 
@@ -61,19 +57,19 @@ function UpdateProduct() {
     e.preventDefault();
 
     // set value to null when sumit ===============================
-  
-      let input_value = e.target.input_value;
-      input_value.forEach((input_tag)=>{
-          input_tag.value = "";
-      })
 
-      // image value to nulll
-      let img_value = e.target.testImage;
-     
-      img_value.forEach((img)=>{
-          console.log(img.value);
-          img.value ="";
-      })
+    let input_value = e.target.input_value;
+    input_value.forEach((input_tag) => {
+      input_tag.value = "";
+    });
+
+    // image value to nulll
+    let img_value = e.target.testImage;
+
+    img_value.forEach((img) => {
+      console.log(img.value);
+      img.value = "";
+    });
 
     // =END======================================
     const formdata = new FormData();
@@ -92,7 +88,6 @@ function UpdateProduct() {
     axios
       .post("https://node.smartdoors.com.np/upload", formdata, {})
       .then((res) => {
-       
         setMessage(res.data.message);
       })
       .catch((err) => {
@@ -108,15 +103,14 @@ function UpdateProduct() {
           <AdminTop></AdminTop>
           <form onSubmit={onSubmit}>
             <div className="row-uproduct row">
-
-
-
               {/* admin message =============== */}
-                <h1 className="admin-message" style={{opacity:`${message.length>0?"1":"0"}`}}>{message}</h1>
+              <h1
+                className="admin-message"
+                style={{ opacity: `${message.length > 0 ? "1" : "0"}` }}
+              >
+                {message}
+              </h1>
               {/* =============END==================== */}
-
-
-
 
               <div className="col d-flex align-items-center justify-content-between">
                 <NavLink to="/admin/products">
@@ -138,8 +132,7 @@ function UpdateProduct() {
                     className="mb-2 form-control"
                     type="text"
                     name="input_value"
-                    defaultValue={product && product.name}  
-                  
+                    defaultValue={product && product.name}
                     onChange={(e) =>
                       setproductupload({
                         ...productupload,
@@ -154,7 +147,6 @@ function UpdateProduct() {
                     className="mb-2 form-control"
                     type="number"
                     name="input_value"
-
                     placeholder={product && product.price}
                     onChange={(e) =>
                       setproductupload({
@@ -167,7 +159,9 @@ function UpdateProduct() {
                 <div className="up-size">
                   <div className="up-size ">
                     <label className=" text-capitalize ">Size : </label>
-                    <select className="form-control mb-2"  onChange={(e) =>
+                    <select
+                      className="form-control mb-2"
+                      onChange={(e) =>
                         setproductupload({
                           ...productupload,
                           size: e.target.value,
@@ -175,7 +169,6 @@ function UpdateProduct() {
                       }
                       name="input_value"
                       id="upSize"
-                      
                     >
                       <option value="80-32">80 * 32</option>
                       <option value="80-26">80 * 26</option>
@@ -189,7 +182,8 @@ function UpdateProduct() {
                   </div>
                   <div className="up-cat">
                     <label className="text-capitalize ">Categories : </label>
-                    <select id="cars"
+                    <select
+                      id="cars"
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
@@ -197,7 +191,8 @@ function UpdateProduct() {
                         })
                       }
                       className="form-control mb-2"
-                      name="input_value">
+                      name="input_value"
+                    >
                       <option value="3D DOORS">3d doors</option>
                       <option value="DOUBLE DOORS">Double doors</option>
                       <option value="CANADA DOORS">Canadian doors</option>
@@ -280,8 +275,8 @@ function UpdateProduct() {
                   </div>
                 </div>
 
-                <div className="back-img" >
-                  <div className="img" id="back_img"  ></div>
+                <div className="back-img">
+                  <div className="img" id="back_img"></div>
                   <div className="img-upload">
                     <input
                       type="file"
