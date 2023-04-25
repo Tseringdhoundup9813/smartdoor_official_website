@@ -54,15 +54,15 @@ body {
   font-size: 54px;
 }
 .home-carousel-item:nth-child(1) {
-  background: url("../image/home-img/home1.jpeg") center/cover no-repeat;
+  background: url("../image/home-img/home1.png") center/cover no-repeat;
 }
 
 .home-carousel-item:nth-child(2) {
-  background: url("../image/home-img/home2.jpeg") center/cover no-repeat;
+  background: url("../image/home-img/home2.png") center/cover no-repeat;
 }
 
 .home-carousel-item:nth-child(3) {
-  background: url("../image/home-img/home3.jpeg") center/cover no-repeat;
+  background: url("../image/home-img/home3.png") center/cover no-repeat;
 }
 
 .btn-explore {
@@ -122,7 +122,7 @@ body {
   margin-right: 20px;
 }
 .trendy-img {
-  background: url("../image/home-img/home3.jpeg") center/cover no-repeat;
+  background: url("../image/home-img/home3.png") center/cover no-repeat;
 }
 .trendy-head {
   font-weight: 700;
