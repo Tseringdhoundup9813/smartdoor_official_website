@@ -3,8 +3,6 @@ import "../style/Home.css";
 import { NavLink } from "react-router-dom";
 
 //service card- images
-import service1 from "../image/services/service1.jpg";
-import service2 from "../image/services/service2.jpg";
 import service3 from "../image/services/service3.jpg";
 import service4 from "../image/services/service4.jpg";
 import service5 from "../image/services/service5.jpg";
@@ -33,8 +31,6 @@ function Home() {
     window.scrollTo(0, 0);
   };
   const serviceCard = [
-    { title: "Door accessories", image: service1, detail: "clean and custom" },
-    { title: "Door Replacement", image: service2, detail: "clean and custom" },
     { title: "Customization", image: service3, detail: "clean and custom" },
     { title: "Installation", image: service4, detail: "clean and custom" },
     { title: "Door Design", image: service5, detail: "clean and custom" },
@@ -75,12 +71,6 @@ function Home() {
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
-            {/* <button
-              type="button"
-              data-bs-target="#homecarousel"
-              data-bs-slide-to="3"
-              aria-label="Slide 4"
-            ></button> */}
           </div>
           <div className="carousel-inner">
             <div className="home-carousel-item carousel-item active">
@@ -99,10 +89,6 @@ function Home() {
                       more efficient. One such technological advancement is the
                       futuristic smart doors. These...
                     </div>
-                    {/* <div className="carousel-btn d-flex">
-                                        <div><NavLink to="/product" className="nav-link btn-explore px-4">explore now</NavLink></div>
-                                        <div><NavLink to="/contact" className="nav-link btn-find px-4">find us</NavLink></div>
-                                    </div> */}
                   </div>
                 </div>
               </div>
@@ -123,10 +109,6 @@ function Home() {
                       occupants. Over the years, doors have evolved from simple
                       wooden barriers to more...
                     </div>
-                    {/* <div className="carousel-btn d-flex">
-                                        <div><NavLink to="/product" className="nav-link btn-explore px-4">explore now</NavLink></div>
-                                        <div><NavLink to="/contact" className="nav-link btn-find px-4">find us</NavLink></div>
-                                    </div> */}
                   </div>
                 </div>
               </div>
@@ -147,31 +129,10 @@ function Home() {
                       more efficient. One such technological advancement is the
                       futuristic smart doors. These...
                     </div>
-                    {/* <div className="carousel-btn d-flex">
-                                        <div><NavLink to="/product" className="nav-link btn-explore px-4">explore now</NavLink></div>
-                                        <div><NavLink to="/contact" className="nav-link btn-find px-4">find us</NavLink></div>
-                                    </div> */}
                   </div>
                 </div>
               </div>
             </div>
-            {/* <div className="home-carousel-item carousel-item">
-                    <div className="row home-item-row">
-                        <div className="col-md-8 col-sm-12 mx-auto">
-                                <div className="home-carousel-detail d-flex align-items-start flex-column">
-                                    <div className="home-carousel-head text-uppercase text-white m-2">
-                                        welcome to smart doors
-                                    </div>
-                                    <div className="home-carousel-topic fs-2 text-uppercase text-start text-white fw-bolder">Traditional doors vs. Smart Doors</div>
-                                    <div className=" home-carousel-para  text-capitalize text-white text-start my-2">Doors are a fundamental component of any building, providing a means of access and security for its occupants. Over the years, doors have evolved from simple wooden barriers to more...</div>
-                                    <div className="carousel-btn d-flex">
-                                        <div><NavLink to="/product" className="nav-link btn-explore px-4">explore now</NavLink></div>
-                                        <div><NavLink to="/contact" className="nav-link btn-find px-4">find us</NavLink></div>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                    </div> */}
           </div>
 
           <button
@@ -243,7 +204,9 @@ function Home() {
               <div className="service-card">
                 <div
                   className="service-card-img"
-                  style={{ background: `url(${e.image})` }}
+                  style={{
+                    background: `url(${e.image})center/cover no-repeat`,
+                  }}
                 ></div>
                 <div className="service-card-detail">
                   <div className="service-card-title">{e.title}</div>

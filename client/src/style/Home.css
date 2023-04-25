@@ -65,44 +65,12 @@ body {
   background: url("../image/home-img/home3.png") center/cover no-repeat;
 }
 
-.btn-explore {
-  background-color: #fff;
-  color: black;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 6px 10px;
-  transition: all 0.3s ease-in-out;
-}
-.btn-explore:hover {
-  background-color: #005fff;
-  color: #fff;
-}
-.btn-find {
-  background-color: transparent;
-  color: #fff;
-  border-radius: 0;
-  text-transform: uppercase;
-  border: 1px solid #fff;
-  margin-left: 20px;
-  font-weight: 600;
-  padding: 6px 10px;
-  transition: all 0.3s ease-in-out;
-}
-.btn-find:hover {
-  background: #005fff;
-  color: #fff;
-}
 @media screen and (max-width: 690px) {
   .home-carousel-head {
     font-size: 17px;
   }
   .home-carousel-para {
     font-size: 11px !important;
-  }
-  .btn-explore,
-  .btn-find {
-    font-size: 10px;
   }
 }
 /* =======================trendy images=========================== */
@@ -179,11 +147,6 @@ body {
   border: 1px solid rgba(128, 128, 128, 0.39);
   padding: 0;
 }
-.service-card-img {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 .service-card-detail {
   display: flex;
   width: 100%;
@@ -253,7 +216,7 @@ body {
   width: 100%;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
 }
