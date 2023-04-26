@@ -15,33 +15,43 @@ function UpdateProduct() {
   const { productId } = useParams();
   const [product, setproduct] = useState();
   const [message, setMessage] = useState("");
+  const[img_index,set_img_index] =useState("");
 
   const [productupload, setproductupload] = useState({
     name: "",
     description: "",
     price: "",
-    front_img: "",
-    back_img: "",
+    img:[],
     categories: "3D DOORS",
     color: "rose wood",
     size: "80-32",
     discount: "0",
   });
+       
+
+
+
 
   useEffect(() => {
+     
+    
     productDetail();
-
     // message get value set message to nothing after a second
-    if (message.length > 0) {
+    if (message==false) {
       setTimeout(function () {
         setMessage("");
       }, 10000);
+
+
+    }
+    if(message){
+      window.location.reload(true)
     }
 
     // end========================================
-  }, [message, productupload]);
+  },[message]);
 
-  console.log(productupload);
+  
   // sucessfully updated
 
   async function productDetail() {
@@ -51,6 +61,19 @@ function UpdateProduct() {
       );
       setproduct(product.data.data);
 
+      setproductupload({
+        name: product.data.data.name,
+        description:product.data.data.description,
+        price:product.data.data.price,
+        img:[product.data.data.img[0]],
+        categories:product.data.data.categories,
+        color:product.data.data.colors,
+        size:product.data.data.size,
+        discount:product.data.data.discount,
+
+      })
+
+
       // set set product value
 
       //
@@ -59,88 +82,39 @@ function UpdateProduct() {
     }
   }
 
-  const onSubmit = (e) => {
+  const  onSubmit = (e) => {
     e.preventDefault();
-
-    // // if productupload is not defind then assign actual value
-
-    // if(!productupload.name.length>0){
-    //   setproductupload({...productupload,name:product.name})
-
-    // }
-    // else{
-
-    // }
-
-    // if(!productupload.price.length>0){
-    //   console.log("price working");
-    //   setproductupload({...productupload,price:product.price})
-
-    // }
-    // else{
-
-    // }
-    // if(!productupload.size.length>0){
-    //   setproductupload({...productupload,size:product.size})
-
-    // }else{}
-    // if(!productupload.categories.length>0){
-    //   setproductupload({...productupload,categories:product.categories})
-
-    // }else{}
-    // if(!productupload.color.length>0){
-    //   setproductupload({...productupload,color:product.color})
-
-    // }else{}
-    // if(!productupload.discount.length>0){
-    //   setproductupload({...productupload,discount:product.discount})
-
-    // }else{}
-
-    // if(productupload.img[0]==undefined){
-    //   console.log("not add");
-    //   setproductupload({...productupload,img:[product.img[0]]})
-
-    // }else{}
-    // if(productupload.img[1]==undefined){
-    //   console.log("not add");
-    //   setproductupload({...productupload,img:[product.img[1]]})
-
-    // }else{}
-
-    // console.log(productupload);
-
-    // ENd============================
-
+    console.log(productupload);
     const formdata = new FormData();
-
+ 
     formdata.append("name", productupload.name);
     formdata.append("description", productupload.description);
     formdata.append("price", productupload.price);
     formdata.append("discount", productupload.discount);
     {
       for (var a = 0; a < productupload.img.length; a++) {
+      
         formdata.append("testImage", productupload.img[a]);
       }
     }
     formdata.append("categories", productupload.categories);
     formdata.append("colors", productupload.color);
     formdata.append("size", productupload.size);
-    console.log(formdata);
-
-    axios
-      .post(`http://localhost:3001/productupdate/${productId}`, {
-        productupload,
-      })
+    
+   
+ 
+    axios.post(`https://node.smartdoors.com.np/productupdate/${productId}`,formdata,{})
       .then((res) => {
-        setMessage(res.data.message);
+        setMessage(res.data.success);
+     
       })
       .catch((err) => {
         console.log(err);
-        setMessage("product is not add");
+        setMessage("Product is not Uploaded try again");
         // product successfully upload tick to red
         const tick = document.querySelector(".fa-circle-check");
-        tick.color = "red";
+      
+        tick.style.color ="red";
         //
       });
   };
@@ -156,9 +130,9 @@ function UpdateProduct() {
               {/* admin message =============== */}
               <h1
                 className="admin-message"
-                style={{ opacity: `${message.length > 0 ? "1" : "0"}` }}
+                style={{ opacity: `${message? "1" : "0"}` }}
               >
-                {message}
+                <i class="fa-regular fa-circle-check" ></i>Successfully updateded
               </h1>
               {/* =============END==================== */}
 
@@ -339,16 +313,18 @@ function UpdateProduct() {
                       name="testImage"
                       className="front-image"
                       onChange={(e) =>
+                        
                         setproductupload({
                           ...productupload,
-                          front_img: e.target.value,
+                          img: [...productupload.img,e.target.files[0]],
                         })
+
                       }
                     />
                   </div>
                 </div>
 
-                <div className="back-img">
+                {/* <div className="back-img">
                   <div
                     className="img   front_image_upload "
                     id="back_img"
@@ -356,7 +332,7 @@ function UpdateProduct() {
                       backgroundImage: `url(${product && product.img[1]})`,
                     }}
                   ></div>
-                  <div className="img-upload">
+                  {/* <div className="img-upload">
                     <input
                       type="file"
                       name="testImage"
@@ -364,12 +340,12 @@ function UpdateProduct() {
                       onChange={(e) =>
                         setproductupload({
                           ...productupload,
-                          back_img: e.target.value,
+                              img:[...productupload.img,e.target.files[0]],
                         })
                       }
                     />
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */} 
               </div>
             </div>
           </form>

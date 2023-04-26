@@ -54,11 +54,13 @@ export default function OrderMain() {
 
                     {/* <div className="cus-date">{moment(order.createdAt.slice(0,order.createdAt.indexOf("T")), "YYYYMMDD").fromNow()}</div> */}
                     <div className="cus-date">{order.createdAt}</div>
+                    <div className="cus-date">{order.payment?"Paid":"not Paid"}</div>
+
 
                     <div className="cus-status">
                       <div>
                         <select name="status" id="" onChange={(e)=>set_order_status(e.target.value)}>
-                          <option value="0">pending</option>
+                          <option value="0" >pending</option>
                           <option value="1">shipped</option>
                           <option value="3">canceled</option>
                           <option value="2">delivered</option>

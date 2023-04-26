@@ -17,15 +17,15 @@ function Dashboard(){
                 <div className="row row-admin">
                 <AdminNavbar></AdminNavbar>
                 <div className="col-md-10 col-sm-12 admin-main">
-                        <AdminTop></AdminTop>
+                        {/* <AdminTop></AdminTop> */}
                         {/* ====graph===== */}
-                        <AdminGraph></AdminGraph>   
+                        {/* <AdminGraph></AdminGraph>    */}
 
                         {/* =====order-main===== */}
                         <OrderMain></OrderMain>
 
                         {/* ========topproduct====== */}
-                        <TopProduct></TopProduct>
+                        {/* <TopProduct></TopProduct> */}
                 </div>
                 </div>
         </div>

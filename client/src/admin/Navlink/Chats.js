@@ -91,7 +91,7 @@ export default function Chats() {
        <div className="row row-admin">
               <AdminNavbar></AdminNavbar>
               <div className="col-md-10 col-sm-12 admin-main">
-                  <AdminTop></AdminTop>
+                  {/* <AdminTop></AdminTop> */}
 
 
                     {/* customer message =================================================== */}

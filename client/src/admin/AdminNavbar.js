@@ -32,11 +32,11 @@ function AdminNavbar(){
                             <div className="side-icon"><i class="fa-solid fa-upload"></i></div>add products
                            </NavLink>
                         </div>
-                        <div className="side-chat text-capitalize nav-item">
+                        {/* <div className="side-chat text-capitalize nav-item">
                             <NavLink to="/admin/categories"  className=" nav-link sidechatNav">
                             <div className="side-icon"><i class="fa-solid fa-upload"></i></div>Categories
                            </NavLink>
-                        </div>
+                        </div> */}
                         <div className="side-chat text-capitalize nav-item">
                            <NavLink to="/admin/order"  className="nav-link sidechatNav">
                            <div className="side-icon"><i class="fa-regular fa-calendar-check"></i></div>order
@@ -47,26 +47,26 @@ function AdminNavbar(){
                             <div className="side-icon"><i class="fa-regular fa-message"></i></div>Customer Message
                         </NavLink>
                         </div>
-                        <div className="side-chat text-capitalize nav-item">
+                        {/* <div className="side-chat text-capitalize nav-item">
                             
                             <NavLink to="/admin/inbox" className="nav-link sidechatNav">
                             <div className="side-icon"><i class="fa-solid fa-inbox"></i></div>inbox
                         </NavLink>
-                        </div>
+                        </div> */}
                         
                         
-                        <div className="side-chat text-capitalize nav-item">
+                        {/* <div className="side-chat text-capitalize nav-item">
                             <NavLink to="/admin/media"  className="nav-link sidechatNav">
                             <div className="side-icon"><i class="fa-solid fa-file"></i></div>media
                            </NavLink>
                             
-                        </div>
-                        <div className="side-chat text-capitalize nav-item">
+                        </div> */}
+                        {/* <div className="side-chat text-capitalize nav-item">
                             <NavLink to="/admin/pages"  className="nav-link sidechatNav">
                             <div className="side-icon"><i class="fa-solid fa-file"></i></div>pages
                            </NavLink>
                             
-                        </div>
+                        </div> */}
                     </div>
                 </div>
     )

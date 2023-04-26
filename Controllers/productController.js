@@ -532,8 +532,9 @@ exports.khaltidata=async(req,res)=>{
           }
           
         try{
+     
 
-        const response = await axios.post("https://a.khalti.com/api/v2/epayment/initiate/",payload,{
+        const response = await axios.post(" https://khalti.com/api/v2/epayment/initiate/",payload,{
             headers:{
                 'Authorization':`Key ${process.env.KHALTI_TOKEN } `
             }
@@ -760,12 +761,37 @@ exports.CustomerMessageCheck=async(req,res)=>{
 }
 
 // admin product update ===========================================
-exports.ProductUpdate=async=(req,res)=>{
-        console.log(req.params);
-        console.log(req.body);
-        const {name,description,price,discount,colors,categories,size} = req.body;
-        console.log(name);
-       
+exports.ProductUpdate=async(req,res)=>{
+        
+     
+        const {name,description,price,discount,colors,categories,size,testImage} = req.body;
+        const url = req.protocol + '://' + req.get('host');
+        let imgdata = req.files;
+        path = [];
+        try{
+            if(req.files){
+                for(var a= 0;a < imgdata.length;a++){
+                    if(a < 2){
+                        path.push(url + "/Uploads/" + imgdata[a].filename.split(" ").join(""));
+                        
+                    }
+                }
+            }
+            if(path.length ==0){
+                path[0] = testImage;
+            }
+        
+            const response = await productModel.findByIdAndUpdate({_id:req.params.id},{name,description,price,discount,colors,categories,size,img:path})
+            res.status(201).json({success:true})
+        
+        }
+        catch(err){
+            console.log(err);
+            res.status(201).json({success:false})
+        }
+
+    
+        // console.log(name);
 }
 
 // ===============END============================================

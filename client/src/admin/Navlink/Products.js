@@ -181,7 +181,7 @@ function Product() {
       <div className="row row-admin">
         <AdminNavbar></AdminNavbar>
         <div className="col-md-10 col-sm-12 admin-main">
-          <AdminTop></AdminTop>
+          {/* <AdminTop></AdminTop> */}
           {/* delete message  */}
           {deleteConfirmBox ? (
             <div id="delete-confirm-box">
@@ -447,10 +447,10 @@ function Product() {
                         key={key}
                         className="show-card-container show-card-container-ad"
                       >
-                        <NavLink
+                        {/* <NavLink
                           to={`/product/page-view${product._id}`}
                           className="img-border"
-                        >
+                        > */}
                           <div className="show-card-img">
                             {product.discount < 1 ? (
                               ""
@@ -461,7 +461,7 @@ function Product() {
                             )}
                             <img src={product.img[0]}></img>
                           </div>
-                        </NavLink>
+                        {/* </NavLink> */}
 
                         <div className="show-card-detail p-2">
                           {/* delete product  */}

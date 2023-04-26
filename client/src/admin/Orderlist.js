@@ -16,7 +16,7 @@ function Orderlist (){
              <div className="row row-admin">
               <AdminNavbar></AdminNavbar>
               <div className="col-md-10 col-sm-12 admin-main">
-                <AdminTop></AdminTop>
+                {/* <AdminTop></AdminTop> */}
                     <OrderMain></OrderMain>
               </div>
           </div>

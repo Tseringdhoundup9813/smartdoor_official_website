@@ -386,3 +386,37 @@
   border-radius: 2px 0px 0px 2px;
 }
 /* =========END+=============== */
+
+
+/* delete-confirm-box ====================== */
+#delete-confirm-box{
+  position:fixed;
+  top:30%;
+  left:50%;
+  z-index:99999;
+  background-color:rgb(29, 29, 29);
+  padding:20px;
+  border-radius:4px;
+
+}
+#delete-confirm-box > h1{
+    font-size:1.5rem;
+    color:white;
+}
+#delete-confirm-box > div{
+  width:100%;
+  display: flex;
+  justify-content:space-around;
+}
+#delete-confirm-box > div >button{
+  border:none;
+  background-color:tomato;
+  padding:2px 20px;
+  font-size:1rem;
+  color:white;
+
+}
+#delete-confirm-box > div >button:nth-child(1){
+    background-color: rgb(144, 179, 255);
+
+}

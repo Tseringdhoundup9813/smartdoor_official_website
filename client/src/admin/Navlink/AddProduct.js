@@ -28,8 +28,7 @@ function AddProduct(){
       const[back_img,set_back_img] = useState();
     
       useEffect(() => {
-        productDetail();
-    
+   
         // message get value set message to nothing after a second 
           if(message.length > 0){
           
@@ -58,13 +57,13 @@ function AddProduct(){
             })
           }
     
-          if(back_img.files.length > 0){
-            let reader = new FileReader();
-            reader.readAsDataURL(back_img.files[0]);
-            reader.addEventListener("load",()=>{
-            set_back_img(reader.result);
-            })
-          }
+          // if(back_img.files.length > 0){
+          //   let reader = new FileReader();
+          //   reader.readAsDataURL(back_img.files[0]);
+          //   reader.addEventListener("load",()=>{
+          //   set_back_img(reader.result);
+          //   })
+          // }
         
     
       }, [message,productupload]);
@@ -72,17 +71,17 @@ function AddProduct(){
     
       // sucessfully updated
     
-      async function productDetail() {
-        try {
-          const product = await axios.get(
-            `https://node.smartdoors.com.np/productdetail/${productId}`
-          );
+      // async function productDetail() {
+      //   try {
+      //     const product = await axios.get(
+      //       `https://node.smartdoors.com.np/productdetail/${productId}`
+      //     );
     
-          setproduct(product.data.data);
-        } catch (err) {
-          console.log(err);
-        }
-      }
+      //     setproduct(product.data.data);
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+      // }
     
       const onSubmit = (e) => {
         e.preventDefault();
@@ -97,13 +96,10 @@ function AddProduct(){
               })
     
             // image value to nulll
-              img_value.forEach((img)=>{
-              
-                img.value ="";
-                set_back_img("");
-                set_front_img("");
-              })
-    
+            console.log(img_value);
+            img_value.value ="";
+            set_front_img("");
+            
           
         
         // =END======================================
@@ -117,23 +113,26 @@ function AddProduct(){
         {
           for (var a = 0; a < productupload.img.length; a++) {
             formdata.append("testImage", productupload.img[a]);
+            
           }
         }
         formdata.append("categories", productupload.categories);
         formdata.append("colors", productupload.color);
         formdata.append("size", productupload.size);
+    
        
         axios
           .post("https://node.smartdoors.com.np/upload", formdata, {})
           .then((res) => {
             setMessage(res.data.message);
+         
           })
           .catch((err) => {
-            console.log(err);
+          
             setMessage("product is not add")
             // product successfully upload tick to red 
               const tick = document.querySelector(".fa-circle-check");
-              tick.color = "red"
+              tick.style.color = "red"
             // 
           });
       };
@@ -143,7 +142,7 @@ function AddProduct(){
           <div className="row row-admin">
             <AdminNavbar></AdminNavbar>
             <div className="col-md-10 col-sm-12 admin-main">
-              <AdminTop></AdminTop>
+              {/* <AdminTop></AdminTop> */}
               <form onSubmit={onSubmit}>
                 <div className="row-uproduct row">
     
@@ -332,7 +331,7 @@ function AddProduct(){
                       </div>
                     </div>
     
-                    <div className="back-img" >
+                    {/* <div className="back-img" >
                       <div className="img   front_image_upload " id="back_img"  style={{backgroundImage:`url(${back_img})`}} ></div>
                       <div className="img-upload">
                         <input
@@ -349,7 +348,7 @@ function AddProduct(){
                           }
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </form>
