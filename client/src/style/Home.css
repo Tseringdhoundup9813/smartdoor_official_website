@@ -2,18 +2,6 @@
 body {
   font-family: "Roboto", sans-serif;
 }
-.top-btn {
-  font-size: 20px;
-  background-color: #005fff;
-  border: 1px solid #00afff;
-  color: #fff;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 5px;
-  right: 33px;
-  cursor: pointer;
-  animation: up 0.5s ease-in;
-}
 @keyframes up {
   from {
     bottom: 0;
@@ -23,10 +11,6 @@ body {
     bottom: 40px;
     right: 20px;
   }
-}
-.top-btn:hover {
-  background-color: #00afff;
-  border: 1px solid #005fff;
 }
 #homecarousel {
   height: 70vh;
@@ -173,16 +157,11 @@ body {
 .service-card {
   display: grid;
   grid-template-rows: 75% 25%;
-  width: 90%;
+  width: 70%;
   margin: 10px auto;
   height: 50vh;
   border: 1px solid rgba(128, 128, 128, 0.39);
   padding: 0;
-}
-.service-card-img {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 .service-card-detail {
   display: flex;
@@ -253,7 +232,7 @@ body {
   width: 100%;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
 }

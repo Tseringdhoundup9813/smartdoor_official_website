@@ -29,14 +29,9 @@ function Home() {
   useEffect(() => {
     AOS.init();
   });
-  const top = () => {
-    window.scrollTo(0, 0);
-  };
   const serviceCard = [
-    { title: "Door accessories", image: service1, detail: "clean and custom" },
     { title: "Door Replacement", image: service2, detail: "clean and custom" },
     { title: "Customization", image: service3, detail: "clean and custom" },
-    { title: "Installation", image: service4, detail: "clean and custom" },
     { title: "Door Design", image: service5, detail: "clean and custom" },
     { title: "Consulting", image: service6, detail: "clean and custom" },
   ];
@@ -243,7 +238,9 @@ function Home() {
               <div className="service-card">
                 <div
                   className="service-card-img"
-                  style={{ background: `url(${e.image})` }}
+                  style={{
+                    background: `url(${e.image})center/cover no-repeat`,
+                  }}
                 ></div>
                 <div className="service-card-detail">
                   <div className="service-card-title">{e.title}</div>
@@ -282,18 +279,20 @@ function Home() {
           {product.map((e) => {
             return (
               <div className="product-card" data-aos="flip-up">
-                <div
-                  className="product-img"
-                  style={{
-                    background: `url(${e.image})center/contain no-repeat`,
-                  }}
-                >
-                  <div className="product-detail">
-                    <div className="product-name">premium {e.cat} Door</div>
-                    <div className="product-model">sd102</div>
-                    <div className="product-btn btn">click here</div>
+                <NavLink className="nav-link" to="products">
+                  <div
+                    className="product-img"
+                    style={{
+                      background: `url(${e.image})center/contain no-repeat`,
+                    }}
+                  >
+                    <div className="product-detail">
+                      <div className="product-name">premium {e.cat} Door</div>
+                      <div className="product-model">sd102</div>
+                      <div className="product-btn btn">click here</div>
+                    </div>
                   </div>
-                </div>
+                </NavLink>
                 <div className="product-cat text-capitalize">
                   <span className="premium-red">premium </span> {e.cat}{" "}
                   <span className="premium-doors">
@@ -461,15 +460,11 @@ function Home() {
               data-aos="fade-left"
             >
               <NavLink to="contact" className="nav-link">
-                {" "}
                 contact us
               </NavLink>{" "}
             </div>
           </div>
         </div>
-      </div>
-      <div onClick={top} className="btn top-btn">
-        <i class="fa-solid fa-arrow-up"></i>
       </div>
       <Footer></Footer>
     </div>

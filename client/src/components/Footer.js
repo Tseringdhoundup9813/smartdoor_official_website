@@ -9,7 +9,7 @@ function Footer() {
       <div className="footer">
         <div className="row-footer row">
           <ScrollRestoration></ScrollRestoration>
-          <div className="col-sm-3 col-6">
+          <div className="col-sm-4 col-6">
             <div className="footer-title text-capitalize">About Us</div>
             <div className="footer-about-us">
               Smart Doors is an emerging door production Company located in
@@ -18,7 +18,7 @@ function Footer() {
               been dedicated to giving our clients super excellent.
             </div>
           </div>
-          <div className="col-sm-3 col-6">
+          <div className="col-sm-2 col-6">
             <div className="footer-title">company</div>
 
             <div className="footer-ul">

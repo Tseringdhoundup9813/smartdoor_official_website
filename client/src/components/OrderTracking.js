@@ -88,33 +88,25 @@ export default function OrderTracking() {
   useEffect(() => {
     handlePrice();
     OrderTracking();
-
-    
-
-   
-  },[]);
-
+  }, []);
 
   // condition =================
-   const trackingwidth  = function(status){
-        if(status===0){
-         
-          return 0;
-        }
-        else if(status===1){
-          return 50;
-        }
-        else if(status===2){
-          return 100;
-        }
-   }
-
-
+  const trackingwidth = function (status) {
+    if (status === 0) {
+      return 0;
+    } else if (status === 1) {
+      return 50;
+    } else if (status === 2) {
+      return 100;
+    }
+  };
 
   async function OrderTracking() {
     try {
       const order = await axios.get(
-        `https://node.smartdoors.com.np/ordertracking/${localStorage.getItem("user_id")}`
+        `https://node.smartdoors.com.np/ordertracking/${localStorage.getItem(
+          "user_id"
+        )}`
       );
 
       set_order_tracking_list(order.data.data);
@@ -126,17 +118,17 @@ export default function OrderTracking() {
   }
 
   // order ===========================
-   let order_text = function (order_status){
-       if(order_status==0){
-         return "order place";
-       }
-       if(order_status ==1){
-        return "transit";
-       }
-       if(order_status==2){
-         return "delivered"
-       }
-   }
+  let order_text = function (order_status) {
+    if (order_status == 0) {
+      return "order place";
+    }
+    if (order_status == 1) {
+      return "transit";
+    }
+    if (order_status == 2) {
+      return "delivered";
+    }
+  };
 
   //
 
@@ -201,10 +193,6 @@ export default function OrderTracking() {
       },
     ],
   };
-
-  const heart = () => {
-    console.log("hi");
-  };
   const likeimg = [
     { image: productimg, title: "3d ddors", price: "3800" },
     { image: can, title: "3d ddors", price: "3800" },
@@ -232,6 +220,10 @@ export default function OrderTracking() {
       setQty(1);
     }
   };
+  const [trackView, setTrackView] = useState(false);
+  function trackClicked() {
+    setTrackView(!trackView);
+  }
   return (
     <div>
       <Navbar></Navbar>
@@ -273,7 +265,10 @@ export default function OrderTracking() {
                 order_tracking_list.map((orderlist) => {
                   return (
                     <div>
-                      <div className="order-table-para order-table">
+                      <div
+                        className="order-table-para order-table"
+                        onClick={trackClicked}
+                      >
                         <div
                           className="text-capitalize order-table-list text-center"
                           onClick={() => ViewOrderStatus(orderlist._id)}
@@ -287,146 +282,153 @@ export default function OrderTracking() {
                           {orderlist.createdAt}
                         </div>
                         <div className="text-capitalize order-table-list text-center">
-                          {orderlist.payment?"paid":"unpaid"}
+                          {orderlist.payment ? "paid" : "unpaid"}
                         </div>
                       </div>
-                      <div className="order-view">
-                        <div>
-                          <table>
-                            <tr>
-                              <td>
-                                <div className="track-status text-capitalize">
-                                  status
-                                </div>
-                              </td>
-                              <td className="px-2">:</td>
-                              <td className="ps-3">
-                                <span className="track-status-type">
-                                {order_text(orderlist.deliverystatus)}
-                                </span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="track-location text-capitalize">
-                                  delivery address
-                                </div>
-                              </td>
-                              <td className="px-2">:</td>
-                              <td className="ps-3">
-                                <div className="track-address">
-                                  {orderlist.location}
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="track-number text-capitalize">
-                                  Phone Number
-                                </div>
-                              </td>
-                              <td className="px-2">:</td>
-                              <td className="ps-3">
-                                <div className="track-number-type">
-                                  {orderlist.number}
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </div>
-                        <div className="row row-track-head">
-                          <div className="col-12 track-div">
-                            <div className="cart-heading">
-                              <div className="cart-h text-uppercase">
-                                Product
-                              </div>
-                              <div className="cart-h text-uppercase">price</div>
-                              <div className="cart-h text-uppercase">
-                                quantity
-                              </div>
-                              <div className="cart-h text-uppercase">
-                                total price
-                              </div>
-                            </div>
-
-
-                            {orderlist.productId.map((product)=>{
-                              return <div className="cart-product-list">
-                                   <div className="cart-product-detail">
-                                     <div
-                                       className="cart-product-img"
-                                       style={{
-                                         backgroundImage: `url(${product.mainproduct[0].img[0]})`
-                                       }}
-                                     ></div>
-                                     <div className="cart-product-name text-capitalize">
-                                     {product.mainproduct[0].categories}
-                                     </div>
-                                   </div>
-                                   <div className="cart-product-amt d-flex">
-                                     <div className="price-name"> Price : </div>
-                                     {product.mainproduct[0].price}
-                                   </div>
-     
-                                   <div className="cart-product-quantity d-flex align-items-center">
-                                     <div className="price-qty"> QTY : </div>  {product.quantity}
-                                   </div>
-     
-                                   <div className="cart-product-price d-flex justify-content-around">
-                                     <div className="cart-product-amount">
-                                       {/* <span className="cart-amt-sm">Grand Total</span>  */}
-                                       <div className="cart-product-amount">
-                                         <span className="cart-amt-sm">
-                                           Grand Total
-                                         </span>
-                                         RS.{product.amount}
-                                       </div>
-                                     </div>
-                                   </div>
-                                 </div>
-                            })}
-                           
-
-
-
-
-
+                      {trackView ? (
+                        <div className="order-view">
+                          <div>
+                            <table>
+                              <tr>
+                                <td>
+                                  <div className="track-status text-capitalize">
+                                    status
+                                  </div>
+                                </td>
+                                <td className="px-2">:</td>
+                                <td className="ps-3">
+                                  <span className="track-status-type text-capitalize">
+                                    {order_text(orderlist.deliverystatus)}
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div className="track-location text-capitalize">
+                                    delivery address
+                                  </div>
+                                </td>
+                                <td className="px-2">:</td>
+                                <td className="ps-3">
+                                  <div className="track-address">
+                                    {orderlist.location}
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div className="track-number text-capitalize">
+                                    Phone Number
+                                  </div>
+                                </td>
+                                <td className="px-2">:</td>
+                                <td className="ps-3">
+                                  <div className="track-number-type">
+                                    {orderlist.number}
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </div>
-                        </div>
-                        <div className="order-prog-title my-2">
-                          {" "}
-                          Your Order Progress :
-                        </div>
-                        <div className="order-progress ">
-                          <div className="order-line">
-                            <div
-                          
-                              className="order-progress-color"
-                              style={{ width:`${trackingwidth(orderlist.deliverystatus)}%`,
-                              }}
-                            ></div>
-                            <div className="circle circle1">
-                              <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-                            <div className="circle circle2">
-                              <i class="fa-solid fa-truck"></i>
-                            </div>
-                            <div className="circle circle3">
-                              <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div className="order-status order-placed">
-                              {" "}
-                              Order Placed
-                            </div>
-                            <div className="order-status in-transit">
-                              In Transit
-                            </div>
-                            <div className="order-status completed">
-                              completed
+                          <div className="row row-track-head">
+                            <div className="col-12 track-div">
+                              <div className="cart-heading">
+                                <div className="cart-h text-uppercase">
+                                  Product
+                                </div>
+                                <div className="cart-h text-uppercase">
+                                  price
+                                </div>
+                                <div className="cart-h text-uppercase">
+                                  quantity
+                                </div>
+                                <div className="cart-h text-uppercase">
+                                  total price
+                                </div>
+                              </div>
+
+                              {orderlist.productId.map((product) => {
+                                return (
+                                  <div className="cart-product-list">
+                                    <div className="cart-product-detail">
+                                      <div
+                                        className="cart-product-img"
+                                        style={{
+                                          backgroundImage: `url(${product.mainproduct[0].img[0]})`,
+                                        }}
+                                      ></div>
+                                      <div className="cart-product-name text-capitalize">
+                                        {product.mainproduct[0].categories}
+                                      </div>
+                                    </div>
+                                    <div className="cart-product-amt d-flex">
+                                      <div className="price-name">
+                                        {" "}
+                                        Price :{" "}
+                                      </div>
+                                      {product.mainproduct[0].price}
+                                    </div>
+
+                                    <div className="cart-product-quantity d-flex align-items-center">
+                                      <div className="price-qty"> QTY : </div>{" "}
+                                      {product.quantity}
+                                    </div>
+
+                                    <div className="cart-product-price d-flex justify-content-around">
+                                      <div className="cart-product-amount">
+                                        {/* <span className="cart-amt-sm">Grand Total</span>  */}
+                                        <div className="cart-product-amount">
+                                          <span className="cart-amt-sm">
+                                            Grand Total
+                                          </span>
+                                          RS.{product.amount}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
                             </div>
                           </div>
+                          <div className="order-prog-title my-2">
+                            {" "}
+                            Your Order Progress :
+                          </div>
+                          <div className="order-progress ">
+                            <div className="order-line">
+                              <div
+                                className="order-progress-color"
+                                style={{
+                                  width: `${trackingwidth(
+                                    orderlist.deliverystatus
+                                  )}%`,
+                                }}
+                              ></div>
+                              <div className="circle circle1">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                              </div>
+                              <div className="circle circle2">
+                                <i class="fa-solid fa-truck"></i>
+                              </div>
+                              <div className="circle circle3">
+                                <i class="fa-solid fa-check"></i>
+                              </div>
+                              <div className="order-status order-placed">
+                                {" "}
+                                Order Placed
+                              </div>
+                              <div className="order-status in-transit">
+                                In Transit
+                              </div>
+                              <div className="order-status completed">
+                                completed
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   );
                 })}
@@ -434,14 +436,14 @@ export default function OrderTracking() {
           </div>
         </div>
         {/* ============End of Order-Tracker========= */}
-{/* 
+        {/* 
         <div className="row like-row">
           <div className="pl d-flex justify-content-between">
             <div className="pl-left">You may also Like</div>
             <div className="pl-right">View all</div>
           </div> */}
-          {/* slick */}
-          {/* <div>
+        {/* slick */}
+        {/* <div>
             <Slider {...settings}>
               {likeimg.map((e, key) => {
                 return (
@@ -469,8 +471,6 @@ export default function OrderTracking() {
             </Slider>
           </div>
         </div> */}
-
-        
       </div>
       <Footer></Footer>
     </div>

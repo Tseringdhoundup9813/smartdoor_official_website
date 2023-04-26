@@ -63,6 +63,11 @@ function Product() {
       setpageCount(1);
     }
     paginationSelection();
+    if (window.innerWidth > 575) {
+      setShowf(true);
+    } else {
+      setShowf(false);
+    }
   }, [
     pageCount,
     filtercategory,
@@ -130,7 +135,9 @@ function Product() {
 
   //  filter ============================================
   //using use sate for toggle filter btn tos how dilter div
+
   const [showf, setShowf] = useState(true);
+
   const filter = () => {
     setShowf(!showf);
     // const filterCon=document.querySelector('.filter-body-sm');

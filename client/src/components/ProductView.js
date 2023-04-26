@@ -279,9 +279,7 @@ function Productview() {
         <div
           className="add_to_cart_message"
           style={{
-            transform: `${
-              product_add_message ? "translateX(-10%)" : "translateX(200%)"
-            }`,
+            opacity: `${product_add_message ? "1" : "0"}`,
           }}
         >
           <p>
@@ -292,7 +290,6 @@ function Productview() {
           </p>
         </div>
       }
-
       {/* ==========================END========================================= */}
 
       {/* large screen */}

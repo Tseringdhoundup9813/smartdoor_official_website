@@ -4,20 +4,24 @@ import axios from "axios";
 
 export default function OrderMain() {
   const [orderlist, setorderlist] = useState();
-  const[order_status,set_order_status] = useState();
+  const [order_status, set_order_status] = useState();
   console.log(order_status);
 
   async function OrderList() {
     try {
-      const orderlist = await axios.get(`https://node.smartdoors.com.np/customerorder`);
+      const orderlist = await axios.get(
+        `https://node.smartdoors.com.np/customerorder`
+      );
       console.log(orderlist.data.data);
       setorderlist(orderlist.data.data);
     } catch (err) {}
   }
 
-  async function confirm_order(order_id){
+  async function confirm_order(order_id) {
     try {
-      const orderlist = await axios.get(`https://node.smartdoors.com.np/orderstatus/${order_id}/${order_status}`);
+      const orderlist = await axios.get(
+        `https://node.smartdoors.com.np/orderstatus/${order_id}/${order_status}`
+      );
       console.log(orderlist.data.data);
       setorderlist(orderlist.data.data);
     } catch (err) {}
@@ -54,13 +58,18 @@ export default function OrderMain() {
 
                     {/* <div className="cus-date">{moment(order.createdAt.slice(0,order.createdAt.indexOf("T")), "YYYYMMDD").fromNow()}</div> */}
                     <div className="cus-date">{order.createdAt}</div>
-                    <div className="cus-date">{order.payment?"Paid":"not Paid"}</div>
-
+                    <div className="cus-date">
+                      {order.payment ? "Paid" : "not Paid"}
+                    </div>
 
                     <div className="cus-status">
                       <div>
-                        <select name="status" id="" onChange={(e)=>set_order_status(e.target.value)}>
-                          <option value="0" >pending</option>
+                        <select
+                          name="status"
+                          id=""
+                          onChange={(e) => set_order_status(e.target.value)}
+                        >
+                          <option value="0">pending</option>
                           <option value="1">shipped</option>
                           <option value="3">canceled</option>
                           <option value="2">delivered</option>
@@ -69,7 +78,12 @@ export default function OrderMain() {
                     </div>
 
                     <div>
-                      <span className="cus-confirm" onClick={()=>confirm_order(order._id)}>confirm order</span>
+                      <span
+                        className="cus-confirm"
+                        onClick={() => confirm_order(order._id)}
+                      >
+                        confirm order
+                      </span>
                     </div>
                   </div>
                   <div className="row row-cart-head">

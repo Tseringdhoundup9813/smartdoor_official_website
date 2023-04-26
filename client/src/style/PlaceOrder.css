@@ -1,104 +1,116 @@
-#placeOrder{
-    background-color: rgb(240, 239, 239);
+#placeOrder {
+  background-color: rgb(240, 239, 239);
 }
-.row-placeOrder{
-    width:99%;
-    margin:0 auto;
-    padding:50px 10px;
+.row-placeOrder {
+  width: 99%;
+  margin: 0 auto;
+  padding: 50px 10px;
 }
-.khalti,.cod{
-    background-color: #f5f6f9;
-    margin-right:5px;
-    margin-bottom: 3px;
-    cursor: pointer;
+.khalti,
+.cod {
+  background-color: #f5f6f9;
+  margin-right: 5px;
+  margin-bottom: 3px;
+  cursor: pointer;
 }
-.khalti-icon{
-    height:100px;
-    width:100px;
-    background: url('../image/payment/khalti.png')center/contain no-repeat;
+.khalti-icon {
+  height: 100px;
+  width: 100px;
+  background: url("../image/payment/khalti.png") center/contain no-repeat;
 }
-.cod-icon{
-    height: 100px;
-    width:100px;
-    background:url('../image/payment/cod.png')center/contain no-repeat;
+.cod-icon {
+  height: 100px;
+  width: 100px;
+  background: url("../image/payment/cod.png") center/contain no-repeat;
 }
-.payment-points{
-    background:#fff;
-    color:black;
-    padding:30px;
-    border-radius:5px;
-
+.payment-points {
+  background: #fff;
+  color: black;
+  padding: 30px;
+  border-radius: 5px;
 }
-.pay-nowbtn{
-    background:green;
-    color:#fff;
-    transition:all .3s linear;
-    margin:20px 0;
+.pay-nowbtn {
+  background: green;
+  color: #fff;
+  transition: all 0.3s linear;
+  margin: 20px 0;
 }
-.pay-nowbtn:hover{
-    background:#fff;
-    color:green;
-    border:1px solid green;
+.pay-nowbtn:hover {
+  background: #fff;
+  color: green;
+  border: 1px solid green;
 }
-.ordersummary{
-    background-color: #fff;
-    padding:30px 20px;
-    border-radius:5px;
+.ordersummary {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 5px;
 }
-.img-padding{
-    padding:20px;
+.img-padding {
+  padding: 20px;
 }
-@media screen and (max-width:992px){
-    .row-placeOrder{
-        font-size:12px;
-        padding:0 10px;
-    }
-    .cod-icon,.khalti-icon{
-        height:75px;
-    }
-    .img-padding{
-        padding:10px;
-    }
+@media screen and (max-width: 992px) {
+  .row-placeOrder {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  .cod-icon,
+  .khalti-icon {
+    height: 75px;
+  }
+  .img-padding {
+    padding: 10px;
+  }
 }
-@media screen and (max-width:576px){
-    .cod-icon, .khalti-icon {
-        height: 33px;
-    }
-    .payment-points {
-        padding: 19px;
-    }
-    .paynow-btn, .pay-nowbtn{
-        font-size:12px;
-    }
-    .ordersummary {
-        padding: 20px 20px;
-    }
-    .img-padding{
-        padding:0;
-    }
+@media screen and (max-width: 576px) {
+  .cod-icon,
+  .khalti-icon {
+    height: 33px;
+  }
+  .payment-points {
+    padding: 19px;
+  }
+  .paynow-btn,
+  .pay-nowbtn {
+    font-size: 12px;
+  }
+  .ordersummary {
+    padding: 20px 20px;
+  }
+  .img-padding {
+    padding: 0;
+  }
+  .order_confirm_message {
+    font-size: 12px;
+  }
+}
+.order-table-para {
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  margin: 0 !important;
+}
+.order-table-para:hover {
+  background: rgb(177, 234, 248);
+  cursor: pointer;
 }
 
 /* order confirm message sucessfully ========================== */
-.order_confirm_message{
-
-    position: absolute;
-    top:20%;
-    right:10%;
-    transform:translate(0%,50%);
-    transition:all 1s ease;
-    z-index: 9999;
-   
-    
+.order_confirm_message {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  transform: translate(0%, 50%);
+  transition: all 1s ease;
+  z-index: 9999;
 }
-.order_confirm_message >p{
-    background-color:rgb(38, 208, 38);
-    padding:7px 15px;
-    color:white;
-    border-radius:2px;
-    font: size 0.9em;
+.order_confirm_message > p {
+  background-color: rgb(38, 208, 38);
+  padding: 7px 15px;
+  color: white;
+  border-radius: 2px;
+  font-size: 0.9em;
 }
-.order_confirm_message  span{
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-    margin-left:10px;
+.order_confirm_message span {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin-left: 10px;
 }

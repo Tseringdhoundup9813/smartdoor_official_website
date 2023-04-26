@@ -3,7 +3,7 @@
   padding: 20px 0;
 }
 .row-footer {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .footer-title {
@@ -89,7 +89,6 @@
   margin: 0 4px;
   text-transform: capitalize;
   color: rgb(55, 55, 55);
-  cursor: pointer;
 }
 .footer-copy,
 .f-terms,
@@ -98,6 +97,7 @@
 .f-cho {
   color: grey;
   font-size: 12px;
+  cursor: initial;
 }
 .row-copy {
   width: 95%;

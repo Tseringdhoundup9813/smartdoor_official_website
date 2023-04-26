@@ -29,18 +29,18 @@ app.use(errorHander);
 async function DATABASECONNECTION() {
   try {
     await mongoose.connect(process.env.DB_CONNECTION);
-    console.log("sucessfully connect to database");
+    ("sucessfully connect to database");
   } catch (err) {
-    console.log(err);
+    err;
   }
 }
 //
 DATABASECONNECTION();
 const server = app.listen(process.env.PORT, () => {
-  console.log(`Server started on port ${process.env.PORT}`);
+  `Server started on port ${process.env.PORT}`;
 });
 process.on("unhandledRejection", (err, promise) => {
-  console.log(`logged Error:${err}`);
+  `logged Error:${err}`;
   server.close(() => process.exit(1));
 });
 
