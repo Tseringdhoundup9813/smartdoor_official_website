@@ -358,7 +358,7 @@ export default function BuyNow() {
                 {/* <div className="deliveryfee text-capitalize">Delivery Fee</div>
                 <div className="deliveryfeee-amt text-end">Rs.100</div> */}
                 <div className="total-pay text-capitalize">Total payment</div>
-                <div className="total-pay-amt text-end">Rd. {total_Amount}</div>
+                <div className="total-pay-amt text-end">Rs. {total_Amount}</div>
               </div>
               <div
                 className="placeorder-btn btn text-capitalize"

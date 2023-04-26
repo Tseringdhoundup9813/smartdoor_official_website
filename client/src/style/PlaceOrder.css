@@ -87,6 +87,7 @@
     transform:translate(0%,50%);
     transition:all 1s ease;
     z-index: 9999;
+ 
    
     
 }
@@ -96,6 +97,8 @@
     color:white;
     border-radius:2px;
     font: size 0.9em;
+    transform: translateY(-200px);
+
 }
 .order_confirm_message  span{
     color:rgb(255, 255, 255);

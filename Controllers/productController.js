@@ -480,13 +480,15 @@ exports.orderConfirm= async(req,res)=>{
 }
 
 exports.khaltidata=async(req,res)=>{
-  
+     
+     
     const order_id = req.params.order_id;
-    console.log(order_id);
+
+
 
     const order = await Order.find({_id:order_id});
-    const VAT = 300
-    console.log(order);
+    const VAT = 0;
+
   
         const customer_number = order[0].number;
         const customer_name = order[0].mainuser[0].username;
@@ -508,8 +510,8 @@ exports.khaltidata=async(req,res)=>{
                 })
          })
         const payload = {
-            "return_url": "http://localhost:3000/product/placeorder",
-            "website_url": "https://example.com/",
+            "return_url": "https://smartdoors.com.np/product/placeorder",
+            "website_url": "https://smartdoors.com.np/",
             "amount": totalamount + VAT,
             "purchase_order_id": order_id,
             "purchase_order_name": "smart door/doors",
@@ -539,7 +541,8 @@ exports.khaltidata=async(req,res)=>{
                 'Authorization':`Key ${process.env.KHALTI_TOKEN } `
             }
         
-        })   
+        })  
+        console.log(response); 
 
 
 

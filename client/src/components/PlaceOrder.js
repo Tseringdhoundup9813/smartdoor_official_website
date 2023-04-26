@@ -156,7 +156,7 @@ export default function PlaceOrder() {
 
 
         {
-            <div className="order_confirm_message" style={{transform:`${payment?"translateY(20%)":"translateY(-300%)"}`}}>
+            <div className="order_confirm_message" style={{transform:`${payment?"translateY(25%)":"translateY(-400px)"}`}}>
                <p>You Have sucessfully paid <span> Thank you {localStorage.getItem("username").slice(0,4)}.... </span></p>
              </div>
         }
@@ -217,12 +217,7 @@ export default function PlaceOrder() {
                 <div className="col-sm-5 col-xsm-12 my-4 order-2">
                     <div className="ordersummary">
                         <div className="fs-4 fw-bold text-capitalize" >order summary</div>
-                                <div className="d-flex align-items-center justify-content-between">
-                                <div className="po-title my-1">
-                                subtotal (shipping fee included)
-                                </div>
-                                <div className="po-amt">Rs 9897</div>
-                                </div>
+                              
                                 <div className="d-flex align-items-center justify-content-between">
                                 <div className="po-total fs-4 text-success">Total </div>
                                 <div className="po-total-amt fs-6 text-success">Rs {total_Amount}</div>
