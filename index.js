@@ -6,7 +6,6 @@ const authRouter = require("./Router/auth");
 const bodyParser = require("body-parser");
 const path = require("path");
 const errorHander = require("./middleware/error");
-//hi
 const app = express();
 
 const cors = require("cors");
