@@ -130,7 +130,7 @@ function Product() {
       pageRight.style.opacity = "0.5";
     }
   }
-
+  console.log(pageCount);
   // ==========================================
 
   //  filter ============================================
@@ -228,13 +228,15 @@ function Product() {
                 <div className="show-total">
                   Total product (
                   <span id="total-product-number" className=" text-primary">
-                    {" "}
-                    {totalProductShow}{" "}
+                    {totalProductShow}
                   </span>
                   )
                 </div>
               </div>
-              <div className="pagination-btn sm-pagination d-flex">
+              <div
+                className="pagination-btn sm-pagination d-flex"
+                id="pagiIcon"
+              >
                 <button
                   className="pageLeft"
                   onClick={() =>
@@ -468,15 +470,14 @@ function Product() {
 
         {/* =================product-view============= */}
         <div className="col-sm-9 col-xm-12" id="product-view">
+          {DeleteMessage ? (
+            <div className="p-img-container">
+              <img className="notfoundImg" src={"./Image/no-products.png"} />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="show-product">
-            {DeleteMessage ? (
-              <img
-                className="notfoundImg"
-                src={"./Image/no-products.png"}
-              ></img>
-            ) : (
-              ""
-            )}
             <div className="show-card">
               {/* // product is not found ================================================= */}
 

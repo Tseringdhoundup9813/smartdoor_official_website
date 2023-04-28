@@ -79,6 +79,7 @@ function Home() {
           </div>
           <div className="carousel-inner">
             <div className="home-carousel-item carousel-item active">
+              <div className="home-filter"></div>
               <div className="row home-item-row">
                 <div className="col-sm-8 mx-auto mt-sm-2">
                   <div className="home-carousel-detail d-flex align-items-start flex-column">
@@ -103,6 +104,7 @@ function Home() {
               </div>
             </div>
             <div className="home-carousel-item carousel-item">
+              <div className="home-filter"></div>
               <div className="row home-item-row">
                 <div className="col-md-8 col-sm-12 mx-auto">
                   <div className="home-carousel-detail d-flex align-items-start flex-column">
@@ -127,6 +129,7 @@ function Home() {
               </div>
             </div>
             <div className="home-carousel-item carousel-item">
+              <div className="home-filter"></div>
               <div className="row home-item-row">
                 <div className="col-sm-8 mx-auto mt-sm-2">
                   <div className="home-carousel-detail d-flex align-items-start flex-column">

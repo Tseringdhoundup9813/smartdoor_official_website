@@ -48,7 +48,17 @@ body {
 .home-carousel-item:nth-child(3) {
   background: url("../image/home-img/home3.jpeg") center/cover no-repeat;
 }
-
+.home-carousel-item {
+  position: relative;
+}
+.home-filter {
+  height: 100%;
+  width: 100%;
+  background: #00000070;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .btn-explore {
   background-color: #fff;
   color: black;
