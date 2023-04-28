@@ -125,10 +125,13 @@ function Productview() {
       setValidationBox(true);
     } else {
       try {
-        const product = await axios.post(`http://localhost:3001/addtocart`, {
-          product_id: productId,
-          userId: userId,
-        });
+        const product = await axios.post(
+          `https://node.smartdoors.com.np/addtocart`,
+          {
+            product_id: productId,
+            userId: userId,
+          }
+        );
         console.log(product.data.data.quantity);
 
         if (product.data.cartexist) {

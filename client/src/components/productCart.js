@@ -90,7 +90,9 @@ function ProductCart() {
   async function productlistshow() {
     try {
       const product = await axios.get(
-        `http://localhost:3001/showCartlist/${localStorage.getItem("user_id")}`
+        `https://node.smartdoors.com.np/showCartlist/${localStorage.getItem(
+          "user_id"
+        )}`
       );
 
       setCartList(product.data.data);

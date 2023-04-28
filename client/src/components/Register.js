@@ -236,7 +236,7 @@ const Register = (props) => {
             }}
             onClick={SubmitForm}
           >
-            Singup
+            Signup
           </button>
         </div>
       </form>

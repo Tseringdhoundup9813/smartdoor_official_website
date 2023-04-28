@@ -42,9 +42,12 @@ function Categories() {
   // add category name ===========
   async function AddCategoryName() {
     try {
-      const categoryname = axios.post("http://localhost:3001/addcategoryname", {
-        name: categories_name,
-      });
+      const categoryname = axios.post(
+        "https://node.smartdoors.com.np/addcategoryname",
+        {
+          name: categories_name,
+        }
+      );
     } catch (err) {}
   }
 
@@ -52,7 +55,7 @@ function Categories() {
   async function AddCategoryColor() {
     try {
       const categoryname = axios.post(
-        "http://localhost:3001/addcategorycolor",
+        "https://node.smartdoors.com.np/addcategorycolor",
         { name: categories_color }
       );
     } catch (err) {}

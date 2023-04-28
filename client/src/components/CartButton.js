@@ -8,7 +8,7 @@ function CartButton(props) {
 
   async function AddQt(quantity) {
     try {
-      const product = await axios.post(`http://localhost:3001/addqt`, {
+      const product = await axios.post(`https://node.smartdoors.com.np/addqt`, {
         product_id: props.product_id,
         user_id: props.userKey,
       });
@@ -24,10 +24,13 @@ function CartButton(props) {
   async function MinQt(quantity) {
     if (qt > 1) {
       try {
-        const product = await axios.post(`http://localhost:3001/minqt`, {
-          product_id: props.product_id,
-          user_id: props.userKey,
-        });
+        const product = await axios.post(
+          `https://node.smartdoors.com.np/minqt`,
+          {
+            product_id: props.product_id,
+            user_id: props.userKey,
+          }
+        );
 
         setqt(product.data.qt);
         props.rateChange(qt);

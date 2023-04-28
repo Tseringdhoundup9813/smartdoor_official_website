@@ -8,7 +8,9 @@ export default function OrderMain() {
 
   async function OrderList() {
     try {
-      const orderlist = await axios.get(`http://localhost:3001/customerorder`);
+      const orderlist = await axios.get(
+        `https://node.smartdoors.com.np/customerorder`
+      );
       console.log(orderlist.data.data);
       setorderlist(orderlist.data.data);
     } catch (err) {}
@@ -17,7 +19,7 @@ export default function OrderMain() {
   async function confirm_order(order_id) {
     try {
       const orderlist = await axios.get(
-        `http://localhost:3001/orderstatus/${order_id}/${order_status}`
+        `https://node.smartdoors.com.np/orderstatus/${order_id}/${order_status}`
       );
       console.log(orderlist.data.data);
       setorderlist(orderlist.data.data);
