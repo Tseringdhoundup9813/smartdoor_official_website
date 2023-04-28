@@ -86,15 +86,15 @@ function ProductCart() {
   const [qt_amount, set_qt_amount] = useState();
   const [totalamount, settotalamount] = useState();
 
+  console.log(totalamount);
   async function productlistshow() {
     try {
       const product = await axios.get(
-        `https://node.smartdoors.com.np/showCartlist/${localStorage.getItem(
-          "user_id"
-        )}`
+        `http://localhost:3001/showCartlist/${localStorage.getItem("user_id")}`
       );
 
       setCartList(product.data.data);
+      console.log(product.data);
       set_qt_amount(product.data.quantity);
 
       let total_amount_v = 0;
@@ -274,8 +274,17 @@ function ProductCart() {
                     <div className="price-name">Price : </div>
                     Rs.
                     {product.discount == 0
-                      ? product.price
-                      : (product.price * product.discount) / 100}
+                      ? new Intl.NumberFormat("en-IN", {
+                          maximumSignificantDigits: 3,
+                        }).format(product.price)
+                      : new Intl.NumberFormat("en-IN", {
+                          maximumSignificantDigits: 3,
+                        }).format(
+                          Math.abs(
+                            (product.price * product.discount) / 100 -
+                              product.price
+                          )
+                        )}
                     /-
                   </div>
 
@@ -284,7 +293,7 @@ function ProductCart() {
                     <CartButton
                       productrate={product.quantity}
                       product_price={
-                        product.discount > 0
+                        product.discount > 0 || product.discount == null
                           ? (product.price * product.discount) / 100
                           : product.price
                       }
@@ -294,12 +303,16 @@ function ProductCart() {
                     ></CartButton>
                   </div>
 
-                  <div className="cart-product-price d-flex justify-content-around">
+                  <div className="cart-product-price d-flex">
                     <div className="cart-product-amount">
                       {/* <span className="cart-amt-sm">Grand Total</span>  */}
                       <div className="cart-product-amount">
                         <span className="cart-amt-sm">Grand Total</span>
-                        Rs.{qt_amount[key].amount}/-
+                        Rs.
+                        {new Intl.NumberFormat("en-IN", {
+                          maximumSignificantDigits: 3,
+                        }).format(Math.abs(qt_amount[key].amount))}
+                        /-
                       </div>
                     </div>
 
@@ -320,20 +333,26 @@ function ProductCart() {
 
         <div className="row row-cart-coupon">
           <div className="col-12 coupon-container">
-            <div className="coupon-name text-capitalize">cart totals</div>
             <div>
               {/* <div className="cart-total">
                                 <div className="cart-total-head text-capitalize">subtotal</div>
                                 <div className="cart-total-amt"> Rs.{price}/-</div>
                             </div> */}
-              <div className="cart-total">
-                <div className="cart-total-head text-capitalize">shipping</div>
-                <div className="cart-shipp">Enter your shipping address</div>
-              </div>
 
               <div className="cart-total">
-                <div className="cart-total-head text-capitalize">total</div>
-                <div className="cart-total-amt"> Rs.{totalamount}/-</div>
+                <div className="cart-total-head text-capitalize">
+                  {" "}
+                  cart total
+                </div>
+                <div className="cart-total-amt">
+                  {" "}
+                  Rs.
+                  {/* {new Intl.NumberFormat("en-IN", {
+                    maximumSignificantDigits: 3,
+                  }).format(totalamount)} */}
+                  {totalamount}
+                  /-
+                </div>
               </div>
 
               <div className="coupon-cart">

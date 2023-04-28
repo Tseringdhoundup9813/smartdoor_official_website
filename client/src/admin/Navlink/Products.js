@@ -451,16 +451,16 @@ function Product() {
                           to={`/product/page-view${product._id}`}
                           className="img-border"
                         > */}
-                          <div className="show-card-img">
-                            {product.discount < 1 ? (
-                              ""
-                            ) : (
-                              <div className="product-discount">
-                                {" " + product ? product.discount : ""}%
-                              </div>
-                            )}
-                            <img src={product.img[0]}></img>
-                          </div>
+                        <div className="show-card-img">
+                          {product.discount < 1 ? (
+                            ""
+                          ) : (
+                            <div className="product-discount">
+                              {" " + product ? product.discount : ""}%
+                            </div>
+                          )}
+                          <img src={product.img[0]}></img>
+                        </div>
                         {/* </NavLink> */}
 
                         <div className="show-card-detail p-2">
@@ -471,7 +471,11 @@ function Product() {
                           <div className="show-card-title">{product.name}</div>
 
                           <div className="show-card-price">
-                            Rs {(product.price * product.discount) / 100}
+                            Rs{" "}
+                            {Math.abs(
+                              (product.price * product.discount) / 100 -
+                                product.price
+                            )}
                           </div>
                           {product.discount < 1 ? (
                             ""

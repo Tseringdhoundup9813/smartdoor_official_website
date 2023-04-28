@@ -510,8 +510,17 @@ function Product() {
                       <div className="show-card-price">
                         Rs{" "}
                         {product.discount > 0
-                          ? (product.price * product.discount) / 100
-                          : product.price}
+                          ? new Intl.NumberFormat("en-IN", {
+                              maximumSignificantDigits: 3,
+                            }).format(
+                              Math.abs(
+                                (product.price * product.discount) / 100 -
+                                  product.price
+                              )
+                            )
+                          : new Intl.NumberFormat("en-IN", {
+                              maximumSignificantDigits: 3,
+                            }).format(product.price)}
                       </div>
                       {product.discount < 1 ? (
                         ""
@@ -519,7 +528,11 @@ function Product() {
                         <div className="show-card-discount">
                           Rs.{" "}
                           <span className="price-cut">
-                            {product ? product.price : ""}{" "}
+                            {product
+                              ? new Intl.NumberFormat("en-IN", {
+                                  maximumSignificantDigits: 3,
+                                }).format(product.price)
+                              : ""}{" "}
                             <div className="price-line"></div>
                           </span>
                           {" " + product ? product.discount : ""}%

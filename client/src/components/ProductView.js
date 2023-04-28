@@ -125,10 +125,10 @@ function Productview() {
       setValidationBox(true);
     } else {
       try {
-        const product = await axios.post(
-          `https://node.smartdoors.com.np/addtocart`,
-          { product_id: productId, userId: userId }
-        );
+        const product = await axios.post(`http://localhost:3001/addtocart`, {
+          product_id: productId,
+          userId: userId,
+        });
         console.log(product.data.data.quantity);
 
         if (product.data.cartexist) {
@@ -334,12 +334,12 @@ function Productview() {
                       className=" w-100"
                     />
                   </div>
-                  <div className="carousel-item pv-main-img">
+                  {/* <div className="carousel-item pv-main-img">
                     <img
                       src={product ? product.img[1] : ""}
                       className=" w-100"
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -361,8 +361,16 @@ function Productview() {
             <div className="pv-price">
               Rs.{" "}
               {product.discount > 0
-                ? (product.price * product.discount) / 100
-                : product.price}
+                ? new Intl.NumberFormat("en-IN", {
+                    maximumSignificantDigits: 3,
+                  }).format(
+                    Math.abs(
+                      (product.price * product.discount) / 100 - product.price
+                    )
+                  )
+                : new Intl.NumberFormat("en-IN", {
+                    maximumSignificantDigits: 3,
+                  }).format(product.price)}
             </div>
           </div>
           {product.discount < 1 ? (
@@ -371,7 +379,11 @@ function Productview() {
             <div className="show-card-discount">
               Rs.{" "}
               <span className="price-cut">
-                {product ? product.price : ""}
+                {product
+                  ? new Intl.NumberFormat("en-IN", {
+                      maximumSignificantDigits: 3,
+                    }).format(product.price)
+                  : ""}
                 <div className="price-line"></div>
               </span>
               {product ? product.discount : ""}%

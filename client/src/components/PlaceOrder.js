@@ -257,7 +257,6 @@ export default function PlaceOrder() {
                 <div className="po-title my-1">
                   subtotal (shipping fee included)
                 </div>
-                <div className="po-amt">Rs 9897</div>
               </div>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="po-total fs-4 text-success">Total </div>

@@ -144,7 +144,9 @@ exports.AddToCart = async (req, res) => {
       });
 
       if (product[0].discount > 0) {
-        let discount = (product[0].price * product[0].discount) / 100;
+        let discount = Math.abs(
+          (product[0].price * product[0].discount) / 100 - product[0].price
+        );
         discount = discount * cartlist[0].quantity;
         const addamount = await AddToCart.findOneAndUpdate(
           { userId: userId, productId: product_id },
@@ -181,7 +183,8 @@ exports.AddToCart = async (req, res) => {
       });
 
       if (product[0].discount > 0) {
-        let discount = (product[0].price * product[0].discount) / 100;
+        let discount =
+          (product[0].price * product[0].discount) / 100 - product[0].price;
         discount = discount * cartlist[0].quantity;
         const addamount = await AddToCart.findOneAndUpdate(
           { userId: userId, productId: product_id },
@@ -266,7 +269,11 @@ exports.addQt = async (req, res) => {
     const P_discount = discount[0].discount;
 
     if (P_discount > 0) {
-      const after_discount_price = (P_price * P_discount) / 100;
+      const after_discount_price = Math.abs(
+        (P_price * P_discount) / 100 - P_price
+      );
+      console.log(after_discount_price);
+      console.log("hello");
 
       let totalamount = after_discount_price * qt[0].quantity;
       totalamount = totalamount.toFixed(0);
@@ -278,9 +285,11 @@ exports.addQt = async (req, res) => {
         userId: user_id,
         productId: product_id,
       });
-      res
-        .status(200)
-        .json({ qt: qt[0].quantity, totalamount: get_total_amount[0].amount });
+      res.status(200).json({
+        qt: qt[0].quantity,
+        totalamount: get_total_amount[0].amount,
+        work: "working",
+      });
     } else {
       let totalamount = P_price * qt[0].quantity;
       totalamount = totalamount.toFixed(0);
@@ -317,7 +326,9 @@ exports.minQt = async (req, res) => {
     const P_discount = discount[0].discount;
 
     if (P_discount > 0) {
-      const after_discount_price = (P_price * P_discount) / 100;
+      const after_discount_price = Math.abs(
+        (P_price * P_discount) / 100 - P_price
+      );
 
       let totalamount = after_discount_price * qt[0].quantity;
       totalamount = totalamount.toFixed(0);
@@ -563,7 +574,7 @@ exports.khaltidata = async (req, res) => {
 exports.CustomerOrder = async (req, res) => {
   console.log("working");
 
-  const orderlist = await Order.find({ confirm: true }, { sort: { _id: 1 } });
+  const orderlist = await Order.find({ confirm: true }).sort({ createdAt: -1 });
 
   res.status(200).json({ data: orderlist });
 };

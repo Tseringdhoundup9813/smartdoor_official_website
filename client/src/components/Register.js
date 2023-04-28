@@ -167,14 +167,14 @@ const Register = (props) => {
 
       {/* end ============== */}
 
-      <div className="google-facebook">
+      {/* <div className="google-facebook">
         <div className="google">
           <i class="fa-brands fa-google-plus"></i>
         </div>
         <div className="facebook">
           <i class="fa-brands fa-facebook"></i>
         </div>
-      </div>
+      </div> */}
       <form onSubmit={SubmitForm}>
         <div className="input-container">
           <div>

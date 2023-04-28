@@ -15,43 +15,34 @@ function UpdateProduct() {
   const { productId } = useParams();
   const [product, setproduct] = useState();
   const [message, setMessage] = useState("");
-  const[img_index,set_img_index] =useState("");
+  const [img_index, set_img_index] = useState("");
 
   const [productupload, setproductupload] = useState({
     name: "",
     description: "",
     price: "",
-    img:[],
+    img: [],
     categories: "3D DOORS",
     color: "rose wood",
     size: "80-32",
     discount: "0",
   });
-       
-
-
-
 
   useEffect(() => {
-     
-    
     productDetail();
     // message get value set message to nothing after a second
-    if (message==false) {
+    if (message == false) {
       setTimeout(function () {
         setMessage("");
       }, 10000);
-
-
     }
-    if(message){
-      window.location.reload(true)
+    if (message) {
+      window.location.reload(true);
     }
 
     // end========================================
-  },[message]);
+  }, [message]);
 
-  
   // sucessfully updated
 
   async function productDetail() {
@@ -63,16 +54,14 @@ function UpdateProduct() {
 
       setproductupload({
         name: product.data.data.name,
-        description:product.data.data.description,
-        price:product.data.data.price,
-        img:[product.data.data.img[0]],
-        categories:product.data.data.categories,
-        color:product.data.data.colors,
-        size:product.data.data.size,
-        discount:product.data.data.discount,
-
-      })
-
+        description: product.data.data.description,
+        price: product.data.data.price,
+        img: [product.data.data.img[0]],
+        categories: product.data.data.categories,
+        color: product.data.data.colors,
+        size: product.data.data.size,
+        discount: product.data.data.discount,
+      });
 
       // set set product value
 
@@ -82,39 +71,40 @@ function UpdateProduct() {
     }
   }
 
-  const  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     console.log(productupload);
     const formdata = new FormData();
- 
+
     formdata.append("name", productupload.name);
     formdata.append("description", productupload.description);
     formdata.append("price", productupload.price);
     formdata.append("discount", productupload.discount);
     {
       for (var a = 0; a < productupload.img.length; a++) {
-      
         formdata.append("testImage", productupload.img[a]);
       }
     }
     formdata.append("categories", productupload.categories);
     formdata.append("colors", productupload.color);
     formdata.append("size", productupload.size);
-    
-   
- 
-    axios.post(`https://node.smartdoors.com.np/productupdate/${productId}`,formdata,{})
+
+    axios
+      .post(
+        `https://node.smartdoors.com.np/productupdate/${productId}`,
+        formdata,
+        {}
+      )
       .then((res) => {
         setMessage(res.data.success);
-     
       })
       .catch((err) => {
         console.log(err);
         setMessage("Product is not Uploaded try again");
         // product successfully upload tick to red
         const tick = document.querySelector(".fa-circle-check");
-      
-        tick.style.color ="red";
+
+        tick.style.color = "red";
         //
       });
   };
@@ -130,9 +120,9 @@ function UpdateProduct() {
               {/* admin message =============== */}
               <h1
                 className="admin-message"
-                style={{ opacity: `${message? "1" : "0"}` }}
+                style={{ opacity: `${message ? "1" : "0"}` }}
               >
-                <i class="fa-regular fa-circle-check" ></i>Successfully updateded
+                <i class="fa-regular fa-circle-check"></i>Successfully updateded
               </h1>
               {/* =============END==================== */}
 
@@ -269,6 +259,7 @@ function UpdateProduct() {
                     name="input_value"
                     placeholder={"optinal"}
                     type="number"
+                    defaultvalue="0"
                     min="1"
                     max="100"
                     defaultValue={product && product.discount}
@@ -313,12 +304,10 @@ function UpdateProduct() {
                       name="testImage"
                       className="front-image"
                       onChange={(e) =>
-                        
                         setproductupload({
                           ...productupload,
-                          img: [...productupload.img,e.target.files[0]],
+                          img: [...productupload.img, e.target.files[0]],
                         })
-
                       }
                     />
                   </div>
@@ -345,7 +334,7 @@ function UpdateProduct() {
                       }
                     />
                   </div> */}
-                {/* </div> */} 
+                {/* </div> */}
               </div>
             </div>
           </form>

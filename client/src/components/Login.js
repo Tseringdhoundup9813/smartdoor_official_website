@@ -36,25 +36,23 @@ const Login = (props) => {
     event.preventDefault();
 
     try {
-      let response = await axios.post("https://node.smartdoors.com.np/login",formdata);
+      let response = await axios.post(
+        "https://node.smartdoors.com.np/login",
+        formdata
+      );
       console.log(response.data);
 
-
-      if(response.data.token!==undefined){
+      if (response.data.token !== undefined) {
         localStorage.setItem("token", response.data.token);
-
       }
-      if(response.data.id!==undefined){
+      if (response.data.id !== undefined) {
         localStorage.setItem("user_id", response.data.id);
-
       }
-      if(response.data.username!==undefined){
+      if (response.data.username !== undefined) {
         localStorage.setItem("username", response.data.username);
-
       }
-      if(response.data.email_verify!==undefined){
+      if (response.data.email_verify !== undefined) {
         localStorage.setItem("email_verify", response.data.email_verify);
-
       }
       localStorage.setItem("loginSucess", true);
       setMessage(response.data.message);
@@ -86,14 +84,14 @@ const Login = (props) => {
       )}
 
       {/* end ============= */}
-      <div className="google-facebook">
+      {/* <div className="google-facebook">
         <div className="google">
           <i class="fa-brands fa-google-plus"></i>
         </div>
         <div className="facebook">
           <i class="fa-brands fa-facebook"></i>
         </div>
-      </div>
+      </div> */}
       <form onSubmit={SubmitForm}>
         <div className="input-container">
           <input
@@ -120,7 +118,7 @@ const Login = (props) => {
       <div className="policy-container">
         <p>By Continuning|Argee to smart doors</p>
         <div>
-          <p>Privacy|</p> <p>Privacy</p>
+          <p>Privacy</p>
         </div>
       </div>
     </div>
